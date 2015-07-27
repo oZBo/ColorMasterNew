@@ -5,4 +5,14 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="MainMenuChooseButton">
+
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:layout_margin">10dp</item>
+
+    </style>
+
 </resources>

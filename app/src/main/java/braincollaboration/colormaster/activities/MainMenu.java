@@ -13,6 +13,6 @@ public class MainMenu extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.level_mode_normal); //TODO change me to normal layout
+        setContentView(R.layout.main_menu); //TODO change me to normal layout
     }
 }

@@ -2,9 +2,11 @@ package braincollaboration.colormaster.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import braincollaboration.colormaster.R;
@@ -23,16 +25,19 @@ public class GameLevel extends Activity implements View.OnTouchListener {
 
     private static final int LEFT_SIDE_ID = 100;
     private static final int RIGHT_SIDE_ID = 200;
+    private final static int COUNT_DOWN_INTERVAL = 10; //Interval to update timers. MilliSeconds
 
     private static int score = 0;                   //Game score for current mode
     private float YstartPoint = 0, YEndPoint = 0;   //Values for calculating user swipe direction
 
-    Color colorLeft, colorRight;
-    GameMode gameMode;
+    private Color colorLeft, colorRight;
+    private GameMode gameMode;
 
-    MirroredOrNormalTextView textViewLeftSide, textViewRightSide;
-    LinearLayout layoutLeftSide, layoutRightSide;
-    TextView tvGameScore;
+    private ProgressBar progressBarLeft, progressBarRight;
+    private CountDownTimer countDownTimerLeft, countDownTimerRight;
+    private MirroredOrNormalTextView textViewLeftSide, textViewRightSide;
+    private LinearLayout layoutLeftSide, layoutRightSide;
+    private TextView tvGameScore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,23 +51,82 @@ public class GameLevel extends Activity implements View.OnTouchListener {
 
     }
 
+    @Override
+    protected void onPause() {
+        cancellCountDownTimers();
+        super.onPause();
+    }
+
     private void initViews() {
         tvGameScore = (TextView) findViewById(R.id.tv_score);
         layoutLeftSide = (LinearLayout) findViewById(R.id.layout_left_side);
         layoutLeftSide.setOnTouchListener(this);
         layoutRightSide = (LinearLayout) findViewById(R.id.layout_right_side);
         layoutRightSide.setOnTouchListener(this);
-
         textViewLeftSide = (MirroredOrNormalTextView) findViewById(R.id.textview_left_side);
         textViewRightSide = (MirroredOrNormalTextView) findViewById(R.id.textview_right_side);
+        progressBarLeft = (ProgressBar)findViewById(R.id.progress_left);
+        progressBarRight = (ProgressBar)findViewById(R.id.progress_right);
+    }
+
+    private void cancellCountDownTimers() {
+        if (countDownTimerRight != null && countDownTimerLeft != null) {
+            countDownTimerLeft.cancel();
+            countDownTimerRight.cancel();
+        }
+    }
+
+    private void startSideTimer(int sideID, final int levelTime) {
+
+        switch (sideID) {
+            case LEFT_SIDE_ID:
+                progressBarLeft.setMax(levelTime);
+                if (countDownTimerLeft != null) {
+                    countDownTimerLeft.cancel();
+                }
+                countDownTimerLeft = new CountDownTimer(levelTime, COUNT_DOWN_INTERVAL) {
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+                        progressBarLeft.setProgress((int) millisUntilFinished);
+
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        progressBarLeft.setProgress(0);
+                        endLevel();
+                    }
+                };
+                countDownTimerLeft.start();
+                break;
+            case RIGHT_SIDE_ID:
+                progressBarRight.setMax(levelTime);
+                if (countDownTimerRight != null) {
+                    countDownTimerRight.cancel();
+                }
+                countDownTimerRight = new CountDownTimer(levelTime, COUNT_DOWN_INTERVAL) {
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+                        progressBarRight.setProgress((int) millisUntilFinished);
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        progressBarRight.setProgress(0);
+                        endLevel();
+                    }
+                };
+                countDownTimerRight.start();
+                break;
+        }
     }
 
     private void startLevel(GameMode gameMode) {
-//        hideGameOverDialog();
+//        hideGameOverDialog(); //TODO hide game over dialog if game starts
         generateRightColor(gameMode);
         generateLeftColor(gameMode);
-//        startSideTimer(LEFT_SIDE, GameHelper.getTimeForLevel(score));     //TODO add timers to game level
-//        startSideTimer(RIGHT_SIDE, GameHelper.getTimeForLevel(score));    //TODO add timers to game level
+        startSideTimer(LEFT_SIDE_ID, GameHelper.getTimeForLevel(score));
+        startSideTimer(RIGHT_SIDE_ID, GameHelper.getTimeForLevel(score));
     }
 
     private void changeGameScore(int score) {
@@ -88,13 +152,13 @@ public class GameLevel extends Activity implements View.OnTouchListener {
                 score++;
                 changeGameScore(score);
                 generateLeftColor(gameMode);
-//                startSideTimer(LEFT_SIDE, GameHelper.getTimeForLevel(score)); //TODO make timer for level
+                startSideTimer(LEFT_SIDE_ID, GameHelper.getTimeForLevel(score));
                 break;
             case RIGHT_SIDE_ID:
                 score++;
                 changeGameScore(score);
                 generateRightColor(gameMode);
-//                startSideTimer(RIGHT_SIDE, GameHelper.getTimeForLevel(score)); //TODO make timer for level
+                startSideTimer(RIGHT_SIDE_ID, GameHelper.getTimeForLevel(score));
                 break;
         }
     }

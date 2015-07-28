@@ -11,7 +11,7 @@ import braincollaboration.colormaster.engine.GameMode;
 import braincollaboration.colormaster.utils.Toaster;
 
 /**
- * Created by eandreychenko on 27.07.2015.
+ * Main menu activity
  */
 public class MainMenu extends Activity implements View.OnClickListener {
 

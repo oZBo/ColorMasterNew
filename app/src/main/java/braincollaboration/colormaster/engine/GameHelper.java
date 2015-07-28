@@ -62,7 +62,7 @@ public class GameHelper {
                 PreferenceUtil.putInt(context, context.getString(R.string.pref_key_game_mode_normal), score);
                 break;
             case MIRRORED:
-                PreferenceUtil.putInt(context, context.getString(R.string.prefkey_gamediff_medium), score);
+                PreferenceUtil.putInt(context, context.getString(R.string.pref_key_game_mode_mirror), score);
                 break;
         }
     }
@@ -72,7 +72,7 @@ public class GameHelper {
             case NORMAL:
                 return PreferenceUtil.getInt(context, context.getString(R.string.pref_key_game_mode_normal), 0);
             case MIRRORED:
-                return PreferenceUtil.getInt(context, context.getString(R.string.prefkey_gamediff_medium), 0);
+                return PreferenceUtil.getInt(context, context.getString(R.string.pref_key_game_mode_mirror), 0);
             default:
                 return 0;
         }

@@ -1,0 +1,112 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <ProgressBar
+                android:id="@+id/progress_left"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:layout_weight="1"
+                android:indeterminate="false"
+                android:paddingRight="2dp"
+                android:progressDrawable="@drawable/progress_drawable" />
+
+            <braincollaboration.colormaster.views.MirroredProgressBar
+                android:id="@+id/progress_right"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:indeterminate="false"
+                android:paddingRight="2dp"
+                android:progressDrawable="@drawable/progress_drawable" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:id="@+id/layout_left_side"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="2dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <braincollaboration.colormaster.views.MirroredOrNormalTextView
+                    android:id="@+id/textview_left_side"
+                    style="@style/GameLevelTextView"
+                    android:text="LeftSide"
+                    app:customTypeface="main_font"
+                    tools:ignore="MissingPrefix" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_right_side"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="2dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <braincollaboration.colormaster.views.MirroredOrNormalTextView
+                    android:id="@+id/textview_right_side"
+                    style="@style/GameLevelTextView"
+                    android:text="RightSide"
+                    app:customTypeface="main_font"
+                    tools:ignore="MissingPrefix" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_gravity="center"
+        android:src="@drawable/game_level_score_bg" />
+
+    <TextView
+        android:id="@+id/tv_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="@android:color/black"
+        android:textSize="25sp" />
+
+    <!--<include layout="@layout/color_library"/>-->
+
+    <!--<include layout="@layout/game_tutorial" />-->
+
+    <!--<include layout="@layout/game_over" />-->
+
+
+</FrameLayout>

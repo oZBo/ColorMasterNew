@@ -66,7 +66,7 @@
             android:id="@+id/level_chooser_btn_difficalty"
             android:layout_gravity="center|center_vertical"
             style="@style/MainMenuChooseButton"
-            android:src="@drawable/game_difficalty_1" />
+            android:src="@drawable/main_menu_game_mode_normal" />
 
         <ImageButton
             android:id="@+id/level_chooser_btn_sounds"

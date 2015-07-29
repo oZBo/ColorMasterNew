@@ -53,7 +53,7 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        getLayoutInflater().setFactory(new CustomTypefaceFactory(this, CustomTypeface.getInstance()));
+        getLayoutInflater().setFactory(new CustomTypefaceFactory(this, CustomTypeface.getInstance())); //Set custom fonts to the current activity
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);

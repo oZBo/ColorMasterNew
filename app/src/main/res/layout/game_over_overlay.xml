@@ -16,7 +16,9 @@
         android:gravity="center_vertical"
         android:text="@string/game_over"
         android:textSize="50sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:customTypeface="main_font"
+        tools:ignore="MissingPrefix" />
 
     <ImageButton
         android:id="@+id/game_over_btn_replay"

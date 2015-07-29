@@ -20,7 +20,7 @@ public class Tutorial extends AppIntro {
     @Override
     public void init(Bundle bundle) {
 
-
+        canGoToGameActivity = getIntent().getBooleanExtra(getString(R.string.pref_key_can_start_game_after_tutorial), true);
         // Instead of fragments, you can also use our default slide
         // Just set a title, description, background and image. AppIntro will do the rest
         addSlide(AppIntroFragment.newInstance("Tutorial 1", "asdad sg wae as dcvf sav d asv", R.drawable.screenshot_1, Color.parseColor("#00BCD4")));
@@ -33,18 +33,15 @@ public class Tutorial extends AppIntro {
         setSeparatorColor(Color.parseColor("#2196F3"));
 
         // Hide Skip/Done button
-        showSkipButton(true);
+        if (canGoToGameActivity)
+            showSkipButton(true);
+        else
+            showSkipButton(false);
         showDoneButton(true);
-
-        // Turn vibration on and set intensity
-        // NOTE: you will probably need to ask VIBRATE permesssion in Manifest
-        setVibrate(true);
-        setVibrateIntensity(30);
 
         gameLevel = new Intent(this, GameLevel.class);
         gameLevel.putExtra(getString(R.string.pref_key_game_mode), getIntent().getSerializableExtra(getString(R.string.pref_key_game_mode)));
 
-        canGoToGameActivity = getIntent().getBooleanExtra(getString(R.string.pref_key_can_start_game_after_tutorial), true);
     }
 
     @Override

@@ -11,6 +11,8 @@ import android.widget.ImageButton;
 import braincollaboration.colormaster.R;
 import braincollaboration.colormaster.engine.GameMode;
 import braincollaboration.colormaster.utils.Toaster;
+import cat.ppicas.customtypeface.CustomTypeface;
+import cat.ppicas.customtypeface.CustomTypefaceFactory;
 
 /**
  * Main menu activity
@@ -27,6 +29,7 @@ public class MainMenu extends Activity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getLayoutInflater().setFactory(new CustomTypefaceFactory(this, CustomTypeface.getInstance()));
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);

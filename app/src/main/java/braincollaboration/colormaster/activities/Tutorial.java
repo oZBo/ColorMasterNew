@@ -14,7 +14,8 @@ import braincollaboration.colormaster.R;
  */
 public class Tutorial extends AppIntro {
 
-    Intent gameLevel;
+    private Intent gameLevel;
+    private boolean canGoToGameActivity;
 
     @Override
     public void init(Bundle bundle) {
@@ -42,17 +43,21 @@ public class Tutorial extends AppIntro {
 
         gameLevel = new Intent(this, GameLevel.class);
         gameLevel.putExtra(getString(R.string.pref_key_game_mode), getIntent().getSerializableExtra(getString(R.string.pref_key_game_mode)));
+
+        canGoToGameActivity = getIntent().getBooleanExtra(getString(R.string.pref_key_can_start_game_after_tutorial), true);
     }
 
     @Override
     public void onSkipPressed() {
-        startActivity(gameLevel);
+        if (canGoToGameActivity)
+            startActivity(gameLevel);
         finish();
     }
 
     @Override
     public void onDonePressed() {
-        startActivity(gameLevel);
+        if (canGoToGameActivity)
+            startActivity(gameLevel);
         finish();
     }
 }

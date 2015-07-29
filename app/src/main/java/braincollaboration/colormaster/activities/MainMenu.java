@@ -15,7 +15,7 @@ import braincollaboration.colormaster.utils.Toaster;
  */
 public class MainMenu extends Activity implements View.OnClickListener {
 
-    private ImageButton btnGameDifficalty, btnHelp, btnMarkapp, btnPlay, btnLedaerboard, btnSounds;
+    private ImageButton btnGameDifficulty, btnHelp, btnMarkapp, btnPlay, btnLedaerboard, btnSounds;
     private Toaster toaster;
     private GameMode gameMode = GameMode.NORMAL;
     private boolean isSoundsOn = true;
@@ -29,8 +29,8 @@ public class MainMenu extends Activity implements View.OnClickListener {
         setContentView(R.layout.main_menu);
         toaster = Toaster.init(this);
 //        soundManager = SoundManager.getInstance(this); //TODO SoundManager usage
-        btnGameDifficalty = (ImageButton) findViewById(R.id.level_chooser_btn_difficalty);
-        btnGameDifficalty.setOnClickListener(this);
+        btnGameDifficulty = (ImageButton) findViewById(R.id.level_chooser_btn_difficalty);
+        btnGameDifficulty.setOnClickListener(this);
         btnHelp = (ImageButton) findViewById(R.id.level_chooser_btn_help);
         btnHelp.setOnClickListener(this);
         btnMarkapp = (ImageButton) findViewById(R.id.level_chooser_btn_markapp);
@@ -50,19 +50,21 @@ public class MainMenu extends Activity implements View.OnClickListener {
             case R.id.level_chooser_btn_difficalty:
                 switch (gameMode) {
                     case NORMAL:
-                        btnGameDifficalty.setImageResource(R.drawable.game_mode_mirror);
+                        btnGameDifficulty.setImageResource(R.drawable.game_mode_mirror);
                         gameMode = GameMode.MIRRORED;
                         toaster.toast(getString(R.string.mode_mirror));
                         break;
                     case MIRRORED:
-                        btnGameDifficalty.setImageResource(R.drawable.game_mode_normal);
+                        btnGameDifficulty.setImageResource(R.drawable.game_mode_normal);
                         gameMode = GameMode.NORMAL;
                         toaster.toast(getString(R.string.mode_normal));
                         break;
                 }
                 break;
             case R.id.level_chooser_btn_help:
-                //TODO onClick: tutorial activity
+                nextActivity = new Intent(this, Tutorial.class);
+                nextActivity.putExtra(getString(R.string.pref_key_can_start_game_after_tutorial), false);
+                startActivity(nextActivity);
                 break;
             case R.id.level_chooser_btn_markapp:
                 //TODO before publishing app uncomment "go to the market" functionality

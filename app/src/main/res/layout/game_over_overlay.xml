@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_game_over"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_menu_background"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:visibility="invisible"
+    android:weightSum="4">
+
+    <TextView
+        style="@style/GameOverOverlayTextView"
+        android:gravity="center_vertical"
+        android:text="@string/game_over"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
+    <ImageButton
+        android:id="@+id/game_over_btn_replay"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@android:color/transparent"
+        android:clickable="false"
+        android:scaleType="centerInside"
+        android:src="@drawable/selector_play" />
+
+    <LinearLayout
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                style="@style/GameOverOverlayTextView"
+                android:gravity="start"
+                android:text="@string/score"
+                app:customTypeface="main_font"
+                tools:ignore="MissingPrefix" />
+
+            <TextView
+                android:id="@+id/game_over_tv_score"
+                style="@style/GameOverOverlayTextView"
+                android:gravity="end"
+                android:text="0"
+                app:customTypeface="main_font"
+                tools:ignore="MissingPrefix" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2">
+
+            <TextView
+                style="@style/GameOverOverlayTextView"
+                android:gravity="start"
+                android:text="@string/best"
+                app:customTypeface="main_font"
+                tools:ignore="MissingPrefix" />
+
+            <TextView
+                android:id="@+id/game_over_tv_best"
+                style="@style/GameOverOverlayTextView"
+                android:gravity="end"
+                android:text="0"
+                app:customTypeface="main_font"
+                tools:ignore="MissingPrefix" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal">
+
+        <ImageButton
+            android:id="@+id/game_over_leaderboard"
+            style="@style/MainMenuChooseButton"
+            android:src="@drawable/selector_leaderboard" />
+
+        <ImageButton
+            android:id="@+id/game_over_btn_share"
+            style="@style/MainMenuChooseButton"
+            android:src="@drawable/selector_share" />
+
+        <ImageButton
+            android:id="@+id/game_over_btn_home"
+            style="@style/MainMenuChooseButton"
+            android:src="@drawable/selector_home" />
+
+    </LinearLayout>
+
+</LinearLayout>

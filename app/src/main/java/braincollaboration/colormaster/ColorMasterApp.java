@@ -14,7 +14,7 @@ public class ColorMasterApp extends Application{
         super.onCreate();
         // Register a Typeface creating first the object, and then registering the object
         // with a name.
-        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/font_3.ttf");
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/font_2.ttf");
         CustomTypeface.getInstance().registerTypeface("main_font", typeface);
     }
 

@@ -48,7 +48,7 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
     private ImageButton btnReplay, btnHome, btnShare, btnLeaderboard;
     private TextView tvGameOverScore, tvGameOverBest;
     private TextView tvGameScore;
-    private Animation fadeIn, fadeOut;
+    private Animation fadeIn, fadeOut, fallingDownLeft, fallingDownRight;
     private VibratorManager vibrator;
 
     @Override
@@ -128,11 +128,15 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
 
     protected void initAnimations() {
 
+        fallingDownLeft = AnimationUtils.loadAnimation(this, R.anim.falling_down);
+        fallingDownRight = AnimationUtils.loadAnimation(this, R.anim.falling_down);
         fadeIn = AnimationUtils.loadAnimation(this, android.R.anim.fade_in);
         fadeIn.setDuration(ANIM_DUARTION);
         fadeIn.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
+                textViewLeftSide.setVisibility(View.INVISIBLE);
+                textViewRightSide.setVisibility(View.INVISIBLE);
                 layoutLeftSide.setOnTouchListener(null);
                 layoutRightSide.setOnTouchListener(null);
                 cancelCountDownTimers();
@@ -171,6 +175,8 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
                 layoutRightSide.setOnTouchListener(GameLevel.this);
                 startSideTimer(LEFT_SIDE_ID, GameHelper.getTimeForLevel(score));
                 startSideTimer(RIGHT_SIDE_ID, GameHelper.getTimeForLevel(score));
+                textViewLeftSide.setVisibility(View.VISIBLE);
+                textViewRightSide.setVisibility(View.VISIBLE);
             }
 
             @Override
@@ -185,12 +191,16 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
             countDownTimerLeft.cancel();
             countDownTimerRight.cancel();
         }
+        textViewLeftSide.clearAnimation();
+        textViewRightSide.clearAnimation();
     }
 
     private void startSideTimer(int sideID, final int levelTime) {
 
         switch (sideID) {
             case LEFT_SIDE_ID:
+                fallingDownLeft.setDuration(levelTime);
+                textViewLeftSide.startAnimation(fallingDownLeft);
                 progressBarLeft.setMax(levelTime);
                 if (countDownTimerLeft != null) {
                     countDownTimerLeft.cancel();
@@ -211,6 +221,8 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
                 countDownTimerLeft.start();
                 break;
             case RIGHT_SIDE_ID:
+                fallingDownRight.setDuration(levelTime);
+                textViewRightSide.startAnimation(fallingDownRight);
                 progressBarRight.setMax(levelTime);
                 if (countDownTimerRight != null) {
                     countDownTimerRight.cancel();
@@ -233,11 +245,11 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
     }
 
     private void startLevel(GameMode gameMode) {
+        startSideTimer(LEFT_SIDE_ID, GameHelper.getTimeForLevel(score));
+        startSideTimer(RIGHT_SIDE_ID, GameHelper.getTimeForLevel(score));
         hideGameOverDialog();
         generateRightColor(gameMode);
         generateLeftColor(gameMode);
-        startSideTimer(LEFT_SIDE_ID, GameHelper.getTimeForLevel(score));
-        startSideTimer(RIGHT_SIDE_ID, GameHelper.getTimeForLevel(score));
     }
 
     private void showScoreDialog() {

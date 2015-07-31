@@ -23,9 +23,9 @@ public class Tutorial extends AppIntro {
         canGoToGameActivity = getIntent().getBooleanExtra(getString(R.string.pref_key_can_start_game_after_tutorial), true);
         // Instead of fragments, you can also use our default slide
         // Just set a title, description, background and image. AppIntro will do the rest
-        addSlide(AppIntroFragment.newInstance("Tutorial 1", "asdad sg wae as dcvf sav d asv", R.drawable.screenshot_1, Color.parseColor("#00BCD4")));
-        addSlide(AppIntroFragment.newInstance("Tutorial 2", "asdad sg wae as dcvf sav d asv", R.drawable.screenshot_1, Color.parseColor("#2196F3")));
-        addSlide(AppIntroFragment.newInstance("Tutorial 3", "asdad sg wae as dcvf sav d asv", R.drawable.screenshot_1, Color.parseColor("#5C6BC0")));
+        addSlide(AppIntroFragment.newInstance("Tutorial 1", "asdad sg wae as dcvf sav d asv", android.R.drawable.ic_media_play, Color.parseColor("#00BCD4")));
+        addSlide(AppIntroFragment.newInstance("Tutorial 2", "asdad sg wae as dcvf sav d asv", android.R.drawable.presence_away, Color.parseColor("#2196F3")));
+        addSlide(AppIntroFragment.newInstance("Tutorial 3", "asdad sg wae as dcvf sav d asv", android.R.drawable.ic_delete, Color.parseColor("#5C6BC0")));
 
         // OPTIONAL METHODS
         // Override bar/separator color

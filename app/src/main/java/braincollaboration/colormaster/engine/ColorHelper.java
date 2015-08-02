@@ -23,7 +23,7 @@ class ColorHelper {
             case 4:
                 return mContext.getResources().getString(R.string.color_blue);
             case 5:
-                return mContext.getResources().getString(R.string.color_teal);
+                return mContext.getResources().getString(R.string.color_turquoise);
             case 6:
                 return mContext.getResources().getString(R.string.color_green);
             case 7:
@@ -50,7 +50,7 @@ class ColorHelper {
             case 4:
                 return mContext.getResources().getColor(R.color.blue);
             case 5:
-                return mContext.getResources().getColor(R.color.teal);
+                return mContext.getResources().getColor(R.color.turquoise);
             case 6:
                 return mContext.getResources().getColor(R.color.green);
             case 7:

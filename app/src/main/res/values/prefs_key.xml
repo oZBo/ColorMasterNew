@@ -6,5 +6,6 @@
     <string name="pref_key_game_mode">gameMode</string>
     <string name="pref_key_game_mode_normal">gameModeNormal</string>
     <string name="pref_key_game_mode_mirror">gameModeMirror</string>
+    <string name="pref_key_is_sound_on">soundOnOrOff</string>
 
 </resources>

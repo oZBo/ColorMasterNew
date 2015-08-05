@@ -18,6 +18,7 @@ import braincollaboration.colormaster.R;
 import braincollaboration.colormaster.engine.Color;
 import braincollaboration.colormaster.engine.GameHelper;
 import braincollaboration.colormaster.engine.GameMode;
+import braincollaboration.colormaster.utils.SoundManager;
 import braincollaboration.colormaster.utils.SwipeDirectionCalculator;
 import braincollaboration.colormaster.utils.VibratorManager;
 import braincollaboration.colormaster.views.MirroredOrNormalTextView;
@@ -50,11 +51,13 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
     private TextView tvGameScore;
     private Animation fadeIn, fadeOut, fallingDownLeft, fallingDownRight;
     private VibratorManager vibrator;
+    private SoundManager soundManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getLayoutInflater().setFactory(new CustomTypefaceFactory(this, CustomTypeface.getInstance())); //Set custom fonts to the current activity
         super.onCreate(savedInstanceState);
+        soundManager = SoundManager.getInstance(this);
         score = 0;
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -269,7 +272,7 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
     }
 
     private void endLevel() {
-//        soundManager.play(R.raw.incorrect);  //TODO make soundManager class. Add loose sound.
+        soundManager.play(R.raw.incorrect);
         if (score > GameHelper.loadBestScore(GameLevel.this, gameMode)) {
             GameHelper.saveBestScore(GameLevel.this, gameMode, score);
         }
@@ -279,7 +282,7 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
     }
 
     private void nextLevel(int side) {
-//        soundManager.play(R.raw.correct); //TODO make soundManager class. Add win sound.
+        soundManager.play(R.raw.correct);
         switch (side) {
             case LEFT_SIDE_ID:
                 score++;

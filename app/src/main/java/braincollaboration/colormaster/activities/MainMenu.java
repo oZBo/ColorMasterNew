@@ -11,6 +11,8 @@ import android.widget.ImageButton;
 
 import braincollaboration.colormaster.R;
 import braincollaboration.colormaster.engine.GameMode;
+import braincollaboration.colormaster.utils.PreferenceUtil;
+import braincollaboration.colormaster.utils.SoundManager;
 import cat.ppicas.customtypeface.CustomTypeface;
 import cat.ppicas.customtypeface.CustomTypefaceFactory;
 
@@ -22,8 +24,7 @@ public class MainMenu extends Activity implements View.OnClickListener {
     private Button btnLevelModeNormal, btnLevelModeMirrored;
     private ImageButton btnGameDifficulty, btnHelp, btnMarkapp, btnPlay, btnLedaerboard, btnSounds;
     private GameMode gameMode = GameMode.NORMAL;
-    private boolean isSoundsOn = true;
-//    private SoundManager soundManager; //TODO add soundManager
+    private SoundManager soundManager;
 //    private EasyRatingDialog easyRatingDialog; //TODO add appRaterDialog
 
     @Override
@@ -32,9 +33,9 @@ public class MainMenu extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        soundManager = SoundManager.getInstance(this);
         setContentView(R.layout.main_menu);
         initViews();
-//        soundManager = SoundManager.getInstance(this); //TODO SoundManager usage
 
     }
 
@@ -42,6 +43,7 @@ public class MainMenu extends Activity implements View.OnClickListener {
     protected void onResume() {
         super.onResume();
         checkGameMode();
+        checkSoundState();
     }
 
     private void initViews() {
@@ -77,16 +79,27 @@ public class MainMenu extends Activity implements View.OnClickListener {
         }
     }
 
+    //Checking state of the sound, on or off
+    private void checkSoundState() {
+        if (PreferenceUtil.getBoolean(this, getString(R.string.pref_key_is_sound_on), true)) {
+            btnSounds.setImageResource(R.drawable.selector_sound_on);
+        } else {
+            btnSounds.setImageResource(R.drawable.selector_sound_off);
+        }
+    }
+
     @Override
     public void onClick(View v) {
         Intent nextActivity = null;
         switch (v.getId()) {
             case R.id.level_chooser_btn_help:
+                soundManager.play(R.raw.menu_click);
                 nextActivity = new Intent(this, Tutorial.class);
                 nextActivity.putExtra(getString(R.string.pref_key_can_start_game_after_tutorial), false);
                 startActivity(nextActivity);
                 break;
             case R.id.level_chooser_btn_markapp:
+                soundManager.play(R.raw.menu_click);
                 //TODO before publishing app uncomment "go to the market" functionality
 //                final String appPackageName = getPackageName(); // getPackageName() from Context or Activity object
 //                try {
@@ -96,30 +109,34 @@ public class MainMenu extends Activity implements View.OnClickListener {
 //                }
                 break;
             case R.id.level_chooser_btn_play:
+                soundManager.play(R.raw.menu_click);
                 nextActivity = new Intent(this, Tutorial.class);
                 nextActivity.putExtra(getString(R.string.pref_key_game_mode), gameMode);
                 startActivity(nextActivity);
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 break;
             case R.id.level_chooser_btn_leaderboard:
+                soundManager.play(R.raw.menu_click);
                 //TODO add internet connection checker and leaderboard from Google play services
                 break;
             case R.id.level_chooser_btn_sounds:
-                //TODO add sound, vibration turn on/off functionality
-                if (isSoundsOn) {
-                    isSoundsOn = false;
+                if (PreferenceUtil.getBoolean(this, getString(R.string.pref_key_is_sound_on), true)) {
+                    PreferenceUtil.putBoolean(this, getString(R.string.pref_key_is_sound_on), false);
                     btnSounds.setImageResource(R.drawable.selector_sound_off);
                 } else {
-                    isSoundsOn = true;
+                    PreferenceUtil.putBoolean(this, getString(R.string.pref_key_is_sound_on), true);
                     btnSounds.setImageResource(R.drawable.selector_sound_on);
+                    soundManager.play(R.raw.menu_click);
                 }
                 break;
             case R.id.btn_level_mode_normal:
+                soundManager.play(R.raw.menu_click);
                 btnLevelModeNormal.setBackgroundResource(R.drawable.main_menu_game_mode_pressed);
                 btnLevelModeMirrored.setBackgroundResource(R.drawable.main_menu_game_mode_normal);
                 gameMode = GameMode.NORMAL;
                 break;
             case R.id.btn_level_mode_mirrored:
+                soundManager.play(R.raw.menu_click);
                 btnLevelModeNormal.setBackgroundResource(R.drawable.main_menu_game_mode_normal);
                 btnLevelModeMirrored.setBackgroundResource(R.drawable.main_menu_game_mode_pressed);
                 gameMode = GameMode.MIRRORED;

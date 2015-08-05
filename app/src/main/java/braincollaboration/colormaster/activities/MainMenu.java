@@ -36,7 +36,6 @@ public class MainMenu extends Activity implements View.OnClickListener {
         soundManager = SoundManager.getInstance(this);
         setContentView(R.layout.main_menu);
         initViews();
-
     }
 
     @Override

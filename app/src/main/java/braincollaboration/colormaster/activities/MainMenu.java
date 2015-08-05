@@ -113,7 +113,6 @@ public class MainMenu extends Activity implements View.OnClickListener {
                 nextActivity = new Intent(this, Tutorial.class);
                 nextActivity.putExtra(getString(R.string.pref_key_game_mode), gameMode);
                 startActivity(nextActivity);
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 break;
             case R.id.level_chooser_btn_leaderboard:
                 soundManager.play(R.raw.menu_click);

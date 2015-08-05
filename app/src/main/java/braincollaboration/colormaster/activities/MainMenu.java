@@ -2,17 +2,15 @@ package braincollaboration.colormaster.activities;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import braincollaboration.colormaster.R;
 import braincollaboration.colormaster.engine.GameMode;
-import braincollaboration.colormaster.utils.Toaster;
 import cat.ppicas.customtypeface.CustomTypeface;
 import cat.ppicas.customtypeface.CustomTypefaceFactory;
 
@@ -21,12 +19,11 @@ import cat.ppicas.customtypeface.CustomTypefaceFactory;
  */
 public class MainMenu extends Activity implements View.OnClickListener {
 
+    private Button btnLevelModeNormal, btnLevelModeMirrored;
     private ImageButton btnGameDifficulty, btnHelp, btnMarkapp, btnPlay, btnLedaerboard, btnSounds;
-    private Toaster toaster;
     private GameMode gameMode = GameMode.NORMAL;
     private boolean isSoundsOn = true;
 //    private SoundManager soundManager; //TODO add soundManager
-
 //    private EasyRatingDialog easyRatingDialog; //TODO add appRaterDialog
 
     @Override
@@ -36,8 +33,18 @@ public class MainMenu extends Activity implements View.OnClickListener {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.main_menu);
-        toaster = Toaster.init(this);
+        initViews();
 //        soundManager = SoundManager.getInstance(this); //TODO SoundManager usage
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        checkGameMode();
+    }
+
+    private void initViews() {
         btnGameDifficulty = (ImageButton) findViewById(R.id.level_chooser_btn_difficalty);
         btnGameDifficulty.setOnClickListener(this);
         btnHelp = (ImageButton) findViewById(R.id.level_chooser_btn_help);
@@ -50,26 +57,30 @@ public class MainMenu extends Activity implements View.OnClickListener {
         btnLedaerboard.setOnClickListener(this);
         btnSounds = (ImageButton) findViewById(R.id.level_chooser_btn_sounds);
         btnSounds.setOnClickListener(this);
+        btnLevelModeNormal = (Button) findViewById(R.id.btn_level_mode_normal);
+        btnLevelModeNormal.setOnClickListener(this);
+        btnLevelModeMirrored = (Button) findViewById(R.id.btn_level_mode_mirrored);
+        btnLevelModeMirrored.setOnClickListener(this);
+    }
+
+    //Checking gameMode and changing buttons backgrounds
+    private void checkGameMode() {
+        switch (gameMode) {
+            case NORMAL:
+                btnLevelModeNormal.setBackgroundResource(R.drawable.main_menu_game_mode_pressed);
+                btnLevelModeMirrored.setBackgroundResource(R.drawable.main_menu_game_mode_normal);
+                break;
+            case MIRRORED:
+                btnLevelModeNormal.setBackgroundResource(R.drawable.main_menu_game_mode_normal);
+                btnLevelModeMirrored.setBackgroundResource(R.drawable.main_menu_game_mode_pressed);
+                break;
+        }
     }
 
     @Override
     public void onClick(View v) {
         Intent nextActivity = null;
         switch (v.getId()) {
-            case R.id.level_chooser_btn_difficalty:
-                switch (gameMode) {
-                    case NORMAL:
-                        btnGameDifficulty.setImageResource(R.drawable.game_mode_mirror);
-                        gameMode = GameMode.MIRRORED;
-                        toaster.toast(getString(R.string.mode_mirror));
-                        break;
-                    case MIRRORED:
-                        btnGameDifficulty.setImageResource(R.drawable.game_mode_normal);
-                        gameMode = GameMode.NORMAL;
-                        toaster.toast(getString(R.string.mode_normal));
-                        break;
-                }
-                break;
             case R.id.level_chooser_btn_help:
                 nextActivity = new Intent(this, Tutorial.class);
                 nextActivity.putExtra(getString(R.string.pref_key_can_start_game_after_tutorial), false);
@@ -102,6 +113,16 @@ public class MainMenu extends Activity implements View.OnClickListener {
                     isSoundsOn = true;
                     btnSounds.setImageResource(R.drawable.selector_sound_on);
                 }
+                break;
+            case R.id.btn_level_mode_normal:
+                btnLevelModeNormal.setBackgroundResource(R.drawable.main_menu_game_mode_pressed);
+                btnLevelModeMirrored.setBackgroundResource(R.drawable.main_menu_game_mode_normal);
+                gameMode = GameMode.NORMAL;
+                break;
+            case R.id.btn_level_mode_mirrored:
+                btnLevelModeNormal.setBackgroundResource(R.drawable.main_menu_game_mode_normal);
+                btnLevelModeMirrored.setBackgroundResource(R.drawable.main_menu_game_mode_pressed);
+                gameMode = GameMode.MIRRORED;
                 break;
         }
 

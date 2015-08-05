@@ -26,8 +26,8 @@
     <string name="tip_dont_show_again">Do not show this tip again</string>
     <string name="left_side">LEFT</string>
     <string name="right_side">RIGHT</string>
-    <string name="mode_normal">easier</string>
-    <string name="mode_mirror">harder</string>
+    <string name="mode_normal">Normal</string>
+    <string name="mode_mirror">Mirrored</string>
     <string name="level_hard">Hard</string>
 
     <string name="signin_other_error">There was an issue with sign in.  Please try again later.</string>

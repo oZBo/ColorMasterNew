@@ -1,7 +1,6 @@
 package braincollaboration.colormaster.activities;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 
 import com.github.paolorotolo.appintro.AppIntro;
@@ -24,14 +23,14 @@ public class Tutorial extends AppIntro {
         canGoToGameActivity = getIntent().getBooleanExtra(getString(R.string.pref_key_can_start_game_after_tutorial), true);
         // Instead of fragments, you can also use our default slide
         // Just set a title, description, background and image. AppIntro will do the rest
-        addSlide(AppIntroFragment.newInstance(getString(R.string.tutorial_1_title), getString(R.string.tutorial_1_description), android.R.drawable.ic_media_play, Color.parseColor("#00BCD4")));
-        addSlide(AppIntroFragment.newInstance(getString(R.string.tutorial_2_title), getString(R.string.tutorial_2_description), android.R.drawable.presence_away, Color.parseColor("#2196F3")));
-        addSlide(AppIntroFragment.newInstance(getString(R.string.tutorial_3_title), getString(R.string.tutorial_3_description), android.R.drawable.ic_delete, Color.parseColor("#5C6BC0")));
+        addSlide(AppIntroFragment.newInstance(getString(R.string.tutorial_1_title), getString(R.string.tutorial_1_description), R.drawable.dummy_screenshot_1, getResources().getColor(R.color.tutorial_1_bg)));
+        addSlide(AppIntroFragment.newInstance(getString(R.string.tutorial_2_title), getString(R.string.tutorial_2_description), R.drawable.dummy_screenshot_1, getResources().getColor(R.color.tutorial_2_bg)));
+        addSlide(AppIntroFragment.newInstance(getString(R.string.tutorial_3_title), getString(R.string.tutorial_3_description), R.drawable.dummy_screenshot_1, getResources().getColor(R.color.tutorial_3_bg)));
 
         // OPTIONAL METHODS
         // Override bar/separator color
-        setBarColor(Color.parseColor("#3F51B5"));
-        setSeparatorColor(Color.parseColor("#2196F3"));
+        setBarColor(getResources().getColor(R.color.tutorial_bar_bg));
+        setSeparatorColor(getResources().getColor(R.color.tutorial_separator));
 
         // Hide Skip/Done button|
         showSkipButton(false);

@@ -32,4 +32,11 @@
 
     <color name="grey_transperent_50">#40000000</color>
 
+    <!--Tutorials colors-->
+    <color name="tutorial_1_bg">#00BCD4</color>
+    <color name="tutorial_2_bg">#2196F3</color>
+    <color name="tutorial_3_bg">#5C6BC0</color>
+    <color name="tutorial_bar_bg">#3F51B5</color>
+    <color name="tutorial_separator">#2196F3</color>
+
 </resources>

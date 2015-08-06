@@ -109,7 +109,11 @@ public class MainMenu extends Activity implements View.OnClickListener {
                 break;
             case R.id.level_chooser_btn_play:
                 soundManager.play(R.raw.menu_click);
-                nextActivity = new Intent(this, Tutorial.class);
+                if (PreferenceUtil.getBoolean(this, getString(R.string.pref_key_can_show_tutorial), true)) {
+                    nextActivity = new Intent(this, Tutorial.class);
+                }else{
+                    nextActivity = new Intent(this, GameLevel.class);
+                }
                 nextActivity.putExtra(getString(R.string.pref_key_game_mode), gameMode);
                 startActivity(nextActivity);
                 break;

@@ -47,4 +47,15 @@
     <string name="erd_rate_now">Rate now</string>
     <!--End appRaterDialog-->
 
+    <!-- Strings for tutorial activity-->
+    <string name="tutorial_1_title">Правила просты!</string>
+    <string name="tutorial_1_description">Определи совпадает ли написанный цвет с его фоном.</string>
+    <string name="tutorial_2_title">Управление еще проще!</string>
+    <string name="tutorial_2_description">Совпадает? Веди вверх, если нет - вниз.</string>
+    <string name="tutorial_3_title">Маленькая деталь...</string>
+    <string name="tutorial_3_description">Успей определить до того как цвет упадет.</string>
+    <string name="skip_button">Пропустить</string>
+    <string name="done_button">Готово</string>
+    <!-- end tutorial activity-->
+
 </resources>

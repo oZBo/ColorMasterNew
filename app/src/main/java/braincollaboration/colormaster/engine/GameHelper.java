@@ -35,19 +35,19 @@ public class GameHelper {
         } else if (score <= 40 && score > 35) {
             return 4000;
         } else if (score <= 45 && score > 40) {
-            return 1500;
+            return 3000;
         } else if (score <= 50 && score > 45) {
-            return 1500;
+            return 2500;
         } else if (score <= 55 && score > 50) {
-            return 1400;
+            return 2000;
         } else if (score <= 60 && score > 55) {
-            return 1350;
+            return 2000;
         } else if (score <= 65 && score > 60) {
-            return 1300;
+            return 2000;
         } else if (score <= 70 && score > 65) {
-            return 1250;
+            return 1500;
         }
-        return 1000;
+        return 1500;
     }
 
     private static Random rnd = new Random();

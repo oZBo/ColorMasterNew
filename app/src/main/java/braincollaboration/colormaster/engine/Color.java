@@ -1,7 +1,6 @@
 package braincollaboration.colormaster.engine;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 
 import java.util.Random;
 
@@ -10,9 +9,9 @@ public class Color {
     private static final int COLORS_NUMBER = 10; //Numbers of colors that used in game
 
     private int colorValue;
-    private Drawable parentLayoutBgImage;
+    private int layoutBackgroundColor;
     private String colorText;
-    private boolean colorSameAsText;
+    private boolean colorSameAsBackground;
     private int randomColor;
     private Context mContext;
     private Random random = new Random();
@@ -20,24 +19,27 @@ public class Color {
     public Color(Context mContext) {
         this.mContext = mContext;
         randomColor = random.nextInt(COLORS_NUMBER);
-        colorSameAsText = random.nextBoolean();
+        colorSameAsBackground = random.nextBoolean();
         colorValue = ColorHelper.getColorValue(mContext, randomColor);
         colorText = ColorHelper.getColorName(mContext, randomColor);
         configureColors();
     }
 
     private void configureColors() {
-        int tempRandColor = random.nextInt(COLORS_NUMBER);
-        if (!colorSameAsText) {
-            while (tempRandColor == randomColor)
-                tempRandColor = random.nextInt(COLORS_NUMBER);
-            colorValue = ColorHelper.getColorValue(mContext, tempRandColor);
+
+        int tempLayoutColor = random.nextInt(COLORS_NUMBER);
+        if (!colorSameAsBackground) {
+            while (tempLayoutColor == randomColor)
+                tempLayoutColor = random.nextInt(COLORS_NUMBER);
+            layoutBackgroundColor = ColorHelper.getColorValue(mContext, tempLayoutColor);
+        }else{
+            layoutBackgroundColor = ColorHelper.getColorValue(mContext, randomColor);
         }
 
-//        int tempLayoutColor = random.nextInt(COLORS_NUMBER);
-//        while (tempLayoutColor == randomColor || tempLayoutColor == tempRandColor)
-//            tempLayoutColor = random.nextInt(COLORS_NUMBER);
-//        parentLayoutBgImage = ColorHelper.getColorImageBackground(mContext, tempLayoutColor);
+        int tempTextColor = random.nextInt(COLORS_NUMBER);
+        while (tempTextColor == randomColor || tempTextColor == tempLayoutColor)
+            tempTextColor = random.nextInt(COLORS_NUMBER);
+        colorValue = ColorHelper.getColorValue(mContext, tempTextColor);
     }
 
     public int getColorValue() {
@@ -48,12 +50,12 @@ public class Color {
         return colorText;
     }
 
-    public Drawable getParentLayoutBgImage() {
-        return parentLayoutBgImage;
+    public int getLayoutBackgroundColor() {
+        return layoutBackgroundColor;
     }
 
-    public boolean isColorSameAsText() {
-        return colorSameAsText;
+    public boolean isColorSameAsBackground() {
+        return colorSameAsBackground;
     }
 
 }

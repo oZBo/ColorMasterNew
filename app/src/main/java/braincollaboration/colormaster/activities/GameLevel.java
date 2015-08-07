@@ -314,7 +314,7 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
         }
         textViewLeftSide.setTextColor(colorLeft.getColorValue());
         textViewLeftSide.setText(colorLeft.getColorText());
-//        layoutLeftSide.setBackgroundDrawable(colorLeft.getParentLayoutBgImage()); //TODO change background for textViewLayout
+        layoutLeftSide.setBackgroundColor(colorLeft.getLayoutBackgroundColor());
     }
 
     private void generateRightColor(GameMode gameMode) {
@@ -332,7 +332,7 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
         }
         textViewRightSide.setTextColor(colorRight.getColorValue());
         textViewRightSide.setText(colorRight.getColorText());
-//        layoutRightSide.setBackgroundDrawable(colorRight.getParentLayoutBgImage()); //TODO change background for textViewLayout
+        layoutRightSide.setBackgroundColor(colorRight.getLayoutBackgroundColor());
     }
 
     @Override
@@ -369,14 +369,14 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
             case LEFT_SIDE_ID:
                 switch (userChoice) {
                     case SwipeDirectionCalculator.USER_SWIPE_INCORRECT:
-                        if (colorLeft.isColorSameAsText()) {
+                        if (colorLeft.isColorSameAsBackground()) {
                             nextLevel(LEFT_SIDE_ID);
                         } else {
                             endLevel();
                         }
                         break;
                     case SwipeDirectionCalculator.USER_SWIPE_CORRECT:
-                        if (colorLeft.isColorSameAsText()) {
+                        if (colorLeft.isColorSameAsBackground()) {
                             endLevel();
                         } else {
                             nextLevel(LEFT_SIDE_ID);
@@ -389,14 +389,14 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
             case RIGHT_SIDE_ID:
                 switch (userChoice) {
                     case SwipeDirectionCalculator.USER_SWIPE_INCORRECT:
-                        if (colorRight.isColorSameAsText()) {
+                        if (colorRight.isColorSameAsBackground()) {
                             nextLevel(RIGHT_SIDE_ID);
                         } else {
                             endLevel();
                         }
                         break;
                     case SwipeDirectionCalculator.USER_SWIPE_CORRECT:
-                        if (colorRight.isColorSameAsText()) {
+                        if (colorRight.isColorSameAsBackground()) {
                             endLevel();
                         } else {
                             nextLevel(RIGHT_SIDE_ID);

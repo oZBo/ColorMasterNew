@@ -19,21 +19,21 @@ public class GameHelper {
     public static int getTimeForLevel(int score) {
 
         if (score <= 5 && score >= 0) {
-            return 4700;
+            return 8000;
         } else if (score <= 10 && score > 5) {
-            return 4500;
+            return 7500;
         } else if (score <= 15 && score > 10) {
-            return 4200;
+            return 7000;
         } else if (score <= 20 && score > 15) {
-            return 3700;
+            return 6000;
         } else if (score <= 25 && score > 20) {
-            return 3200;
+            return 5000;
         } else if (score <= 30 && score > 25) {
-            return 2700;
+            return 4000;
         } else if (score <= 35 && score > 30) {
-            return 2200;
+            return 4400;
         } else if (score <= 40 && score > 35) {
-            return 2000;
+            return 4000;
         } else if (score <= 45 && score > 40) {
             return 1500;
         } else if (score <= 50 && score > 45) {

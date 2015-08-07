@@ -12,7 +12,7 @@
     android:weightSum="4">
 
     <TextView
-        style="@style/GameOverOverlayTextView"
+        style="@style/TextViewGameOverOverlay"
         android:gravity="center_vertical"
         android:text="@string/game_over"
         android:textSize="50sp"
@@ -43,7 +43,7 @@
             android:weightSum="2">
 
             <TextView
-                style="@style/GameOverOverlayTextView"
+                style="@style/TextViewGameOverOverlay"
                 android:gravity="start"
                 android:text="@string/score"
                 app:customTypeface="main_font"
@@ -51,7 +51,7 @@
 
             <TextView
                 android:id="@+id/game_over_tv_score"
-                style="@style/GameOverOverlayTextView"
+                style="@style/TextViewGameOverOverlay"
                 android:gravity="end"
                 android:text="0"
                 app:customTypeface="main_font"
@@ -65,7 +65,7 @@
             android:weightSum="2">
 
             <TextView
-                style="@style/GameOverOverlayTextView"
+                style="@style/TextViewGameOverOverlay"
                 android:gravity="start"
                 android:text="@string/best"
                 app:customTypeface="main_font"
@@ -73,7 +73,7 @@
 
             <TextView
                 android:id="@+id/game_over_tv_best"
-                style="@style/GameOverOverlayTextView"
+                style="@style/TextViewGameOverOverlay"
                 android:gravity="end"
                 android:text="0"
                 app:customTypeface="main_font"
@@ -91,17 +91,17 @@
 
         <ImageButton
             android:id="@+id/game_over_leaderboard"
-            style="@style/MainMenuChooseButton"
+            style="@style/ButtonMainMenuChoose"
             android:src="@drawable/selector_leaderboard" />
 
         <ImageButton
             android:id="@+id/game_over_btn_share"
-            style="@style/MainMenuChooseButton"
+            style="@style/ButtonMainMenuChoose"
             android:src="@drawable/selector_share" />
 
         <ImageButton
             android:id="@+id/game_over_btn_home"
-            style="@style/MainMenuChooseButton"
+            style="@style/ButtonMainMenuChoose"
             android:src="@drawable/selector_home" />
 
     </LinearLayout>

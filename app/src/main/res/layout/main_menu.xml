@@ -39,9 +39,7 @@
 
         <Button
             android:id="@+id/btn_level_mode_normal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/main_menu_game_mode_normal"
+            style="@style/ButtonMainMenuGameMod"
             android:text="@string/mode_normal"
             app:customTypeface="main_font"
             tools:ignore="MissingPrefix" />
@@ -56,9 +54,7 @@
 
         <Button
             android:id="@+id/btn_level_mode_mirrored"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/main_menu_game_mode_normal"
+            style="@style/ButtonMainMenuGameMod"
             android:text="@string/mode_mirror"
             app:customTypeface="main_font"
             tools:ignore="MissingPrefix" />
@@ -75,31 +71,31 @@
 
         <ImageButton
             android:id="@+id/level_chooser_btn_leaderboard"
-            style="@style/MainMenuChooseButton"
+            style="@style/ButtonMainMenuChoose"
             android:src="@drawable/selector_leaderboard" />
 
         <ImageButton
             android:id="@+id/level_chooser_btn_markapp"
-            style="@style/MainMenuChooseButton"
+            style="@style/ButtonMainMenuChoose"
             android:src="@drawable/selector_markapp" />
 
         <ImageButton
             android:id="@+id/level_chooser_btn_difficalty"
-            style="@style/MainMenuChooseButton"
+            style="@style/ButtonMainMenuChoose"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:visibility="invisible"
             android:layout_gravity="center|center_vertical"
-            android:src="@android:drawable/ic_lock_idle_lock" />
+            android:src="@android:drawable/ic_lock_idle_lock"
+            android:visibility="invisible" />
 
         <ImageButton
             android:id="@+id/level_chooser_btn_sounds"
-            style="@style/MainMenuChooseButton"
+            style="@style/ButtonMainMenuChoose"
             android:src="@drawable/selector_sound_on" />
 
         <ImageButton
             android:id="@+id/level_chooser_btn_help"
-            style="@style/MainMenuChooseButton"
+            style="@style/ButtonMainMenuChoose"
             android:src="@drawable/selector_help" />
 
     </LinearLayout>

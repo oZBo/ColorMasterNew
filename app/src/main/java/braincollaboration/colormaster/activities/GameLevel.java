@@ -382,6 +382,8 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
                             nextLevel(LEFT_SIDE_ID);
                         }
                         break;
+                    case SwipeDirectionCalculator.USER_TAP_INSTEAD_SWIPE:
+                        return;
                 }
                 break;
             case RIGHT_SIDE_ID:
@@ -400,6 +402,8 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
                             nextLevel(RIGHT_SIDE_ID);
                         }
                         break;
+                    case SwipeDirectionCalculator.USER_TAP_INSTEAD_SWIPE:
+                        return;
                 }
                 break;
         }

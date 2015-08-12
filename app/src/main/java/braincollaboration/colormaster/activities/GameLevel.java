@@ -19,7 +19,7 @@ import braincollaboration.colormaster.engine.Color;
 import braincollaboration.colormaster.engine.GameHelper;
 import braincollaboration.colormaster.engine.GameMode;
 import braincollaboration.colormaster.utils.SoundManager;
-import braincollaboration.colormaster.utils.SwipeDirectionCalculator;
+import braincollaboration.colormaster.engine.SwipeDirectionListener;
 import braincollaboration.colormaster.utils.VibratorManager;
 import braincollaboration.colormaster.views.MirroredOrNormalTextView;
 import cat.ppicas.customtypeface.CustomTypeface;
@@ -345,7 +345,7 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
                         break;
                     case MotionEvent.ACTION_UP:
                         YEndPoint = event.getY();
-                        moveToNextLevelOrEndGame(LEFT_SIDE_ID, SwipeDirectionCalculator.calculateSwipeDirection(YstartPoint, YEndPoint));
+                        moveToNextLevelOrEndGame(LEFT_SIDE_ID, SwipeDirectionListener.calculateSwipeDirection(YstartPoint, YEndPoint));
                         break;
                 }
                 break;
@@ -356,7 +356,7 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
                         break;
                     case MotionEvent.ACTION_UP:
                         YEndPoint = event.getY();
-                        moveToNextLevelOrEndGame(RIGHT_SIDE_ID, SwipeDirectionCalculator.calculateSwipeDirection(YstartPoint, YEndPoint));
+                        moveToNextLevelOrEndGame(RIGHT_SIDE_ID, SwipeDirectionListener.calculateSwipeDirection(YstartPoint, YEndPoint));
                         break;
                 }
         }
@@ -368,41 +368,41 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
         switch (sideID) {
             case LEFT_SIDE_ID:
                 switch (userChoice) {
-                    case SwipeDirectionCalculator.USER_SWIPE_INCORRECT:
+                    case SwipeDirectionListener.USER_SWIPE_INCORRECT:
                         if (colorLeft.isColorSameAsBackground()) {
                             nextLevel(LEFT_SIDE_ID);
                         } else {
                             endLevel();
                         }
                         break;
-                    case SwipeDirectionCalculator.USER_SWIPE_CORRECT:
+                    case SwipeDirectionListener.USER_SWIPE_CORRECT:
                         if (colorLeft.isColorSameAsBackground()) {
                             endLevel();
                         } else {
                             nextLevel(LEFT_SIDE_ID);
                         }
                         break;
-                    case SwipeDirectionCalculator.USER_TAP_INSTEAD_SWIPE:
+                    case SwipeDirectionListener.USER_TAP_INSTEAD_SWIPE:
                         return;
                 }
                 break;
             case RIGHT_SIDE_ID:
                 switch (userChoice) {
-                    case SwipeDirectionCalculator.USER_SWIPE_INCORRECT:
+                    case SwipeDirectionListener.USER_SWIPE_INCORRECT:
                         if (colorRight.isColorSameAsBackground()) {
                             nextLevel(RIGHT_SIDE_ID);
                         } else {
                             endLevel();
                         }
                         break;
-                    case SwipeDirectionCalculator.USER_SWIPE_CORRECT:
+                    case SwipeDirectionListener.USER_SWIPE_CORRECT:
                         if (colorRight.isColorSameAsBackground()) {
                             endLevel();
                         } else {
                             nextLevel(RIGHT_SIDE_ID);
                         }
                         break;
-                    case SwipeDirectionCalculator.USER_TAP_INSTEAD_SWIPE:
+                    case SwipeDirectionListener.USER_TAP_INSTEAD_SWIPE:
                         return;
                 }
                 break;

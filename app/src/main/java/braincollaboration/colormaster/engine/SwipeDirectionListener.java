@@ -1,11 +1,11 @@
-package braincollaboration.colormaster.utils;
+package braincollaboration.colormaster.engine;
 
 /**
  * Class for calculating user swipe direction
  */
-public class SwipeDirectionCalculator {
+public class SwipeDirectionListener {
 
-    private final static int MAX_CLICK_DISTANCE = 30;   //set up value to define tap or not
+    private final static int MAX_CLICK_DISTANCE = 40;   //set up value to define tap or not
     final public static int USER_SWIPE_CORRECT = 1;
     final public static int USER_SWIPE_INCORRECT = -1;
     final public static int USER_TAP_INSTEAD_SWIPE = -500;

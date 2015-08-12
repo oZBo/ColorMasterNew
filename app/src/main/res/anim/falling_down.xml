@@ -2,7 +2,6 @@
 <set xmlns:android="http://schemas.android.com/apk/res/android"
     android:interpolator="@android:anim/linear_interpolator">
     <translate
-        android:fromYDelta="-70%p"
-        android:toYDelta="70%p"
-        android:duration="2000"/>
+        android:fromYDelta="-60%p"
+        android:toYDelta="60%p"/>
 </set>

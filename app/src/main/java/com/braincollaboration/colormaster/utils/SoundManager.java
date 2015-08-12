@@ -1,13 +1,13 @@
-package braincollaboration.colormaster.utils;
+package com.braincollaboration.colormaster.utils;
 
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.util.Log;
 
-import java.util.HashMap;
+import com.braincollaboration.colormaster.R;
 
-import braincollaboration.colormaster.R;
+import java.util.HashMap;
 
 public class SoundManager implements SoundPool.OnLoadCompleteListener {
     /**

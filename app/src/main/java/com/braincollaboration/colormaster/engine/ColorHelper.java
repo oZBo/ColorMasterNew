@@ -1,10 +1,10 @@
-package braincollaboration.colormaster.engine;
+package com.braincollaboration.colormaster.engine;
 
 import android.content.Context;
 
-import java.util.Random;
+import com.braincollaboration.colormaster.R;
 
-import braincollaboration.colormaster.R;
+import java.util.Random;
 
 class ColorHelper {
 

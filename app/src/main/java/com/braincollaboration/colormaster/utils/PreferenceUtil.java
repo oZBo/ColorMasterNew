@@ -1,4 +1,4 @@
-package braincollaboration.colormaster.utils;
+package com.braincollaboration.colormaster.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;

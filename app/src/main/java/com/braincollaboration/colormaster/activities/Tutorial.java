@@ -1,13 +1,12 @@
-package braincollaboration.colormaster.activities;
+package com.braincollaboration.colormaster.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.braincollaboration.colormaster.R;
+import com.braincollaboration.colormaster.utils.PreferenceUtil;
 import com.github.paolorotolo.appintro.AppIntro;
 import com.github.paolorotolo.appintro.AppIntroFragment;
-
-import braincollaboration.colormaster.R;
-import braincollaboration.colormaster.utils.PreferenceUtil;
 
 /**
  * Game tutorial activity

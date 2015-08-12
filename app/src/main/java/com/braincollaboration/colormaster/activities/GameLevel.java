@@ -1,4 +1,4 @@
-package braincollaboration.colormaster.activities;
+package com.braincollaboration.colormaster.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -14,14 +14,15 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import braincollaboration.colormaster.R;
-import braincollaboration.colormaster.engine.Color;
-import braincollaboration.colormaster.engine.GameHelper;
-import braincollaboration.colormaster.engine.GameMode;
-import braincollaboration.colormaster.utils.SoundManager;
-import braincollaboration.colormaster.engine.SwipeDirectionListener;
-import braincollaboration.colormaster.utils.VibratorManager;
-import braincollaboration.colormaster.views.MirroredOrNormalTextView;
+import com.braincollaboration.colormaster.R;
+import com.braincollaboration.colormaster.engine.Color;
+import com.braincollaboration.colormaster.engine.GameHelper;
+import com.braincollaboration.colormaster.engine.GameMode;
+import com.braincollaboration.colormaster.engine.SwipeDirectionListener;
+import com.braincollaboration.colormaster.utils.SoundManager;
+import com.braincollaboration.colormaster.utils.VibratorManager;
+import com.braincollaboration.colormaster.views.MirroredOrNormalTextView;
+
 import cat.ppicas.customtypeface.CustomTypeface;
 import cat.ppicas.customtypeface.CustomTypefaceFactory;
 

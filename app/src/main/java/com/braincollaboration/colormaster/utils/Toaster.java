@@ -1,4 +1,4 @@
-package braincollaboration.colormaster.utils;
+package com.braincollaboration.colormaster.utils;
 
 import android.content.Context;
 import android.view.Gravity;
@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import braincollaboration.colormaster.R;
+import com.braincollaboration.colormaster.R;
 
 public class Toaster {
     private static Toaster mInstance = null;

@@ -1,0 +1,15 @@
+<resources>
+    <!-- TODO: Replace this by your app's app ID! -->
+    <string name="app_id">992277704357</string>
+
+    <!-- TODO: Replace these by your achievement/leaderboard IDs! -->
+    <string name="achievement_prime">CgkIvKz_l-oQEAIQCg</string>
+    <string name="achievement_really_bored">CgkIvKz_l-oQEAIQCA</string>
+    <string name="achievement_bored">CgkIvKz_l-oQEAIQBw</string>
+    <string name="achievement_humble">CgkIvKz_l-oQEAIQBA</string>
+    <string name="achievement_arrogant">CgkIvKz_l-oQEAIQBQ</string>
+    <string name="achievement_leet">CgkIvKz_l-oQEAIQBg</string>
+
+    <string name="leaderboard_mode_normal">CgkIpd3wwvAcEAIQAQ</string>
+    <string name="leaderboard_mode_mirrored">CgkIpd3wwvAcEAIQAg</string>
+</resources>

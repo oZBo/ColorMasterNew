@@ -1,4 +1,4 @@
-package braincollaboration.colormaster.engine;
+package com.braincollaboration.colormaster.engine;
 
 import android.content.Context;
 

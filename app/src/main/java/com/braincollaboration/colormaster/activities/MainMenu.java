@@ -1,6 +1,5 @@
-package braincollaboration.colormaster.activities;
+package com.braincollaboration.colormaster.activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,17 +8,19 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import braincollaboration.colormaster.R;
-import braincollaboration.colormaster.engine.GameMode;
-import braincollaboration.colormaster.utils.PreferenceUtil;
-import braincollaboration.colormaster.utils.SoundManager;
+import com.braincollaboration.colormaster.R;
+import com.braincollaboration.colormaster.engine.GameMode;
+import com.braincollaboration.colormaster.utils.PreferenceUtil;
+import com.braincollaboration.colormaster.utils.SoundManager;
+import com.google.example.games.basegameutils.BaseGameActivity;
+
 import cat.ppicas.customtypeface.CustomTypeface;
 import cat.ppicas.customtypeface.CustomTypefaceFactory;
 
 /**
  * Main menu activity
  */
-public class MainMenu extends Activity implements View.OnClickListener {
+public class MainMenu extends BaseGameActivity implements View.OnClickListener {
 
     private Button btnLevelModeNormal, btnLevelModeMirrored;
     private ImageButton btnGameDifficulty, btnHelp, btnMarkapp, btnPlay, btnLedaerboard, btnSounds;
@@ -31,6 +32,7 @@ public class MainMenu extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         getLayoutInflater().setFactory(new CustomTypefaceFactory(this, CustomTypeface.getInstance()));
         super.onCreate(savedInstanceState);
+        beginUserInitiatedSignIn();
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         soundManager = SoundManager.getInstance(this);
@@ -144,6 +146,16 @@ public class MainMenu extends Activity implements View.OnClickListener {
                 gameMode = GameMode.MIRRORED;
                 break;
         }
+
+    }
+
+    @Override
+    public void onSignInFailed() {
+
+    }
+
+    @Override
+    public void onSignInSucceeded() {
 
     }
 }

@@ -27,7 +27,7 @@
                 android:progressDrawable="@drawable/progress_drawable"
                 android:visibility="gone" />
 
-            <braincollaboration.colormaster.views.MirroredProgressBar
+            <com.braincollaboration.colormaster.views.MirroredProgressBar
                 android:id="@+id/progress_right"
                 style="@android:style/Widget.ProgressBar.Horizontal"
                 android:layout_width="wrap_content"
@@ -58,7 +58,7 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <braincollaboration.colormaster.views.MirroredOrNormalTextView
+                <com.braincollaboration.colormaster.views.MirroredOrNormalTextView
                     android:id="@+id/textview_left_side"
                     style="@style/TextViewGameLevel"
                     android:text="LeftSide"
@@ -76,7 +76,7 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <braincollaboration.colormaster.views.MirroredOrNormalTextView
+                <com.braincollaboration.colormaster.views.MirroredOrNormalTextView
                     android:id="@+id/textview_right_side"
                     style="@style/TextViewGameLevel"
                     android:text="RightSide"

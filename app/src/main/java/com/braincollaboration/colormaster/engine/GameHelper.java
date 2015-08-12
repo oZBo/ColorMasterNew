@@ -1,14 +1,14 @@
-package braincollaboration.colormaster.engine;
+package com.braincollaboration.colormaster.engine;
 
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-import java.util.Random;
+import com.braincollaboration.colormaster.R;
+import com.braincollaboration.colormaster.utils.PreferenceUtil;
 
-import braincollaboration.colormaster.R;
-import braincollaboration.colormaster.utils.PreferenceUtil;
+import java.util.Random;
 
 public class GameHelper {
 

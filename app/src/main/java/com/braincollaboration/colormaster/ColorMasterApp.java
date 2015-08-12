@@ -1,4 +1,4 @@
-package braincollaboration.colormaster;
+package com.braincollaboration.colormaster;
 
 import android.app.Application;
 import android.graphics.Typeface;

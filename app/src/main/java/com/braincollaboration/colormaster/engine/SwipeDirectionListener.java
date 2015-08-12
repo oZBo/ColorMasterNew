@@ -1,4 +1,4 @@
-package braincollaboration.colormaster.engine;
+package com.braincollaboration.colormaster.engine;
 
 /**
  * Class for calculating user swipe direction

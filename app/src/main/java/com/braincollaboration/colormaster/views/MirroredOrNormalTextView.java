@@ -1,4 +1,4 @@
-package braincollaboration.colormaster.views;
+package com.braincollaboration.colormaster.views;
 
 import android.content.Context;
 import android.graphics.Canvas;

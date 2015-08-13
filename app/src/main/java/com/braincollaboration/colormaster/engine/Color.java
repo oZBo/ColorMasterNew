@@ -1,6 +1,7 @@
 package com.braincollaboration.colormaster.engine;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 
 import java.util.Random;
 
@@ -9,7 +10,7 @@ public class Color {
     private static final int COLORS_NUMBER = 10; //Numbers of colors that used in game
 
     private int colorValue;
-    private int layoutBackgroundColor;
+    private Drawable layoutBackgroundColor;
     private String colorText;
     private boolean colorSameAsBackground;
     private int randomColor;
@@ -31,9 +32,9 @@ public class Color {
         if (!colorSameAsBackground) {
             while (tempLayoutColor == randomColor)
                 tempLayoutColor = random.nextInt(COLORS_NUMBER);
-            layoutBackgroundColor = ColorHelper.getColorValue(mContext, tempLayoutColor);
+            layoutBackgroundColor = ColorHelper.getColorImageBackground(mContext, tempLayoutColor);
         }else{
-            layoutBackgroundColor = ColorHelper.getColorValue(mContext, randomColor);
+            layoutBackgroundColor = ColorHelper.getColorImageBackground(mContext, randomColor);
         }
 
         int tempTextColor = random.nextInt(COLORS_NUMBER);
@@ -50,7 +51,7 @@ public class Color {
         return colorText;
     }
 
-    public int getLayoutBackgroundColor() {
+    public Drawable getLayoutBackgroundColor() {
         return layoutBackgroundColor;
     }
 

@@ -59,11 +59,11 @@ public class GameLevel extends BaseGameActivity implements View.OnTouchListener,
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getLayoutInflater().setFactory(new CustomTypefaceFactory(this, CustomTypeface.getInstance())); //Set custom fonts to the current activity
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         soundManager = SoundManager.getInstance(this);
         score = 0;
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         gameMode = (GameMode) getIntent().getSerializableExtra(getString(R.string.pref_key_game_mode));
         vibrator = VibratorManager.getManager(this);
         setContentView(R.layout.game_level);
@@ -323,7 +323,7 @@ public class GameLevel extends BaseGameActivity implements View.OnTouchListener,
         }
         textViewLeftSide.setTextColor(colorLeft.getColorValue());
         textViewLeftSide.setText(colorLeft.getColorText());
-        layoutLeftSide.setBackgroundColor(colorLeft.getLayoutBackgroundColor());
+        layoutLeftSide.setBackgroundDrawable(colorLeft.getLayoutBackgroundColor());
     }
 
     private void generateRightColor(GameMode gameMode) {
@@ -341,7 +341,7 @@ public class GameLevel extends BaseGameActivity implements View.OnTouchListener,
         }
         textViewRightSide.setTextColor(colorRight.getColorValue());
         textViewRightSide.setText(colorRight.getColorText());
-        layoutRightSide.setBackgroundColor(colorRight.getLayoutBackgroundColor());
+        layoutRightSide.setBackgroundDrawable(colorRight.getLayoutBackgroundColor());
     }
 
     @Override

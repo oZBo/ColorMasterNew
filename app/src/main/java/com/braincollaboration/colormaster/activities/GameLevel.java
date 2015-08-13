@@ -1,6 +1,5 @@
 package com.braincollaboration.colormaster.activities;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.MotionEvent;
@@ -19,9 +18,12 @@ import com.braincollaboration.colormaster.engine.Color;
 import com.braincollaboration.colormaster.engine.GameHelper;
 import com.braincollaboration.colormaster.engine.GameMode;
 import com.braincollaboration.colormaster.engine.SwipeDirectionListener;
+import com.braincollaboration.colormaster.utils.PreferenceUtil;
 import com.braincollaboration.colormaster.utils.SoundManager;
 import com.braincollaboration.colormaster.utils.VibratorManager;
 import com.braincollaboration.colormaster.views.MirroredOrNormalTextView;
+import com.google.android.gms.games.Games;
+import com.google.example.games.basegameutils.BaseGameActivity;
 
 import cat.ppicas.customtypeface.CustomTypeface;
 import cat.ppicas.customtypeface.CustomTypefaceFactory;
@@ -29,7 +31,7 @@ import cat.ppicas.customtypeface.CustomTypefaceFactory;
 /**
  * Main game level. Contains NormalMode and MirroredMode
  */
-public class GameLevel extends Activity implements View.OnTouchListener, View.OnClickListener {
+public class GameLevel extends BaseGameActivity implements View.OnTouchListener, View.OnClickListener {
 
     private static final int LEFT_SIDE_ID = 100;
     private static final int RIGHT_SIDE_ID = 200;
@@ -95,6 +97,12 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
                 break;
             case R.id.game_over_leaderboard:
 //                pushAccomplishments(score, true);  //TODO Google play service push score to leaderboard
+                try {
+                    startActivityForResult(Games.Leaderboards.getAllLeaderboardsIntent(getApiClient()),
+                            PreferenceUtil.getInt(this, getString(R.string.pref_key_show_leaderboard_requestcode), 500));
+                } catch (Exception ex) {
+                    getApiClient().connect();
+                }
                 break;
         }
     }
@@ -410,4 +418,13 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
         }
     }
 
+    @Override
+    public void onSignInFailed() {
+
+    }
+
+    @Override
+    public void onSignInSucceeded() {
+
+    }
 }

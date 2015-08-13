@@ -12,6 +12,8 @@ import com.braincollaboration.colormaster.R;
 import com.braincollaboration.colormaster.engine.GameMode;
 import com.braincollaboration.colormaster.utils.PreferenceUtil;
 import com.braincollaboration.colormaster.utils.SoundManager;
+import com.google.android.gms.games.Games;
+import com.google.android.gms.games.GamesActivityResultCodes;
 import com.google.example.games.basegameutils.BaseGameActivity;
 
 import cat.ppicas.customtypeface.CustomTypeface;
@@ -22,6 +24,8 @@ import cat.ppicas.customtypeface.CustomTypefaceFactory;
  */
 public class MainMenu extends BaseGameActivity implements View.OnClickListener {
 
+    public static final int ACTIVITY_CODE_SHOW_LEADERBOARD = 500;
+
     private Button btnLevelModeNormal, btnLevelModeMirrored;
     private ImageButton btnGameDifficulty, btnHelp, btnMarkapp, btnPlay, btnLedaerboard, btnSounds;
     private GameMode gameMode = GameMode.NORMAL;
@@ -31,10 +35,9 @@ public class MainMenu extends BaseGameActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getLayoutInflater().setFactory(new CustomTypefaceFactory(this, CustomTypeface.getInstance()));
-        super.onCreate(savedInstanceState);
-        beginUserInitiatedSignIn();
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        super.onCreate(savedInstanceState);
         soundManager = SoundManager.getInstance(this);
         setContentView(R.layout.main_menu);
         initViews();
@@ -113,7 +116,7 @@ public class MainMenu extends BaseGameActivity implements View.OnClickListener {
                 soundManager.play(R.raw.menu_click);
                 if (PreferenceUtil.getBoolean(this, getString(R.string.pref_key_can_show_tutorial), true)) {
                     nextActivity = new Intent(this, Tutorial.class);
-                }else{
+                } else {
                     nextActivity = new Intent(this, GameLevel.class);
                 }
                 nextActivity.putExtra(getString(R.string.pref_key_game_mode), gameMode);
@@ -121,7 +124,12 @@ public class MainMenu extends BaseGameActivity implements View.OnClickListener {
                 break;
             case R.id.level_chooser_btn_leaderboard:
                 soundManager.play(R.raw.menu_click);
-                //TODO add internet connection checker and leaderboard from Google play services
+                if (getApiClient().isConnected()) {
+                    startActivityForResult(Games.Leaderboards.getAllLeaderboardsIntent(getApiClient()),
+                            ACTIVITY_CODE_SHOW_LEADERBOARD);
+                } else {
+                    beginUserInitiatedSignIn();
+                }
                 break;
             case R.id.level_chooser_btn_sounds:
                 if (PreferenceUtil.getBoolean(this, getString(R.string.pref_key_is_sound_on), true)) {
@@ -147,6 +155,16 @@ public class MainMenu extends BaseGameActivity implements View.OnClickListener {
                 break;
         }
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int responseCode, Intent data) {
+
+        // check for "inconsistent state"
+        if ( responseCode == GamesActivityResultCodes.RESULT_RECONNECT_REQUIRED && requestCode == ACTIVITY_CODE_SHOW_LEADERBOARD)  {
+            // force a disconnect to sync up state, ensuring that mClient reports "not connected"
+            signOut();
+        }
     }
 
     @Override

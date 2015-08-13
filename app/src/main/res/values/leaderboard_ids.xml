@@ -1,0 +1,7 @@
+<resources>
+    <!-- TODO: Replace this by your app's app ID! -->
+    <string name="app_id">992277704357</string>
+
+    <string name="leaderboard_mode_normal">CgkIpd3wwvAcEAIQAQ</string>
+    <string name="leaderboard_mode_mirrored">CgkIpd3wwvAcEAIQAg</string>
+</resources>

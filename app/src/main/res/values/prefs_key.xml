@@ -7,5 +7,6 @@
     <string name="pref_key_game_mode_normal">gameModeNormal</string>
     <string name="pref_key_game_mode_mirror">gameModeMirror</string>
     <string name="pref_key_is_sound_on">soundOnOrOff</string>
+    <string name="pref_key_show_leaderboard_requestcode">showLeaderBoard</string>
 
 </resources>

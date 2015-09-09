@@ -124,7 +124,7 @@ public class MainMenu extends BaseGameActivity implements View.OnClickListener {
                 break;
             case R.id.level_chooser_btn_leaderboard:
                 soundManager.play(R.raw.menu_click);
-                if (getApiClient().isConnected()) {
+                if (this.isSignedIn()) {
                     startActivityForResult(Games.Leaderboards.getAllLeaderboardsIntent(getApiClient()),
                             ACTIVITY_CODE_SHOW_LEADERBOARD);
                 } else {

@@ -31,9 +31,11 @@
         </activity>
         <activity
             android:name="com.braincollaboration.colormaster.activities.GameLevel"
+            android:label="@string/app_name"
             android:screenOrientation="landscape" />
         <activity
             android:name="com.braincollaboration.colormaster.activities.Tutorial"
+            android:label="@string/app_name"
             android:screenOrientation="landscape" />
     </application>
 

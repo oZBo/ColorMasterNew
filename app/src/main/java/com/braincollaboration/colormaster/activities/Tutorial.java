@@ -8,6 +8,9 @@ import com.braincollaboration.colormaster.utils.PreferenceUtil;
 import com.github.paolorotolo.appintro.AppIntro;
 import com.github.paolorotolo.appintro.AppIntroFragment;
 
+import cat.ppicas.customtypeface.CustomTypeface;
+import cat.ppicas.customtypeface.CustomTypefaceFactory;
+
 /**
  * Game tutorial activity
  */
@@ -18,16 +21,15 @@ public class Tutorial extends AppIntro {
 
     @Override
     public void init(Bundle bundle) {
-
         canGoToGameActivity = getIntent().getBooleanExtra(getString(R.string.pref_key_can_start_game_after_tutorial), true);
         // Instead of fragments, you can also use our default slide
         // Just set a title, description, background and image. AppIntro will do the rest
-        addSlide(AppIntroFragment.newInstance(getString(R.string.tutorial_1_title), getString(R.string.tutorial_1_description), R.drawable.dummy_screenshot_1, getResources().getColor(R.color.tutorial_1_bg)));
-        addSlide(AppIntroFragment.newInstance(getString(R.string.tutorial_2_title), getString(R.string.tutorial_2_description), R.drawable.dummy_screenshot_1, getResources().getColor(R.color.tutorial_2_bg)));
-        addSlide(AppIntroFragment.newInstance(getString(R.string.tutorial_3_title), getString(R.string.tutorial_3_description), R.drawable.dummy_screenshot_1, getResources().getColor(R.color.tutorial_3_bg)));
-
+        addSlide(AppIntroFragment.newInstance(getString(R.string.tutorial_1_title), getString(R.string.tutorial_1_description), R.drawable.screenshot_tutorial_1, getResources().getColor(R.color.tutorial_1_bg)));
+        addSlide(AppIntroFragment.newInstance(getString(R.string.tutorial_2_title), getString(R.string.tutorial_2_description), R.drawable.screenshot_tutorial_2, getResources().getColor(R.color.tutorial_2_bg)));
+        addSlide(ColorLibrary.newInstance("colorLibrary"));
         // OPTIONAL METHODS
         // Override bar/separator color
+
         setBarColor(getResources().getColor(R.color.tutorial_bar_bg));
         setSeparatorColor(getResources().getColor(R.color.tutorial_separator));
 

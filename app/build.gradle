@@ -25,5 +25,6 @@ dependencies {
     compile 'cat.ppicas.customtypeface:library:2.0.0'
     compile 'com.github.paolorotolo:appintro:3.1.0'
     compile 'com.android.support:design:22.2.1'
+    compile 'de.hdodenhof:circleimageview:1.2.1'
     compile project(':BaseGameUtils')
 }

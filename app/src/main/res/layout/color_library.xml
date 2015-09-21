@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_color_library"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tutorial_3_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:gravity="center"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:text="@string/tutorial_3_title"/>
+
+        <GridView
+            android:id="@+id/gridview_color_library"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:listSelector="#00000000"
+            android:numColumns="auto_fit"
+            android:paddingBottom="60dp"
+            android:stretchMode="columnWidth"
+            android:layout_below="@+id/textView" />
+
+    </RelativeLayout>
+
+</FrameLayout>

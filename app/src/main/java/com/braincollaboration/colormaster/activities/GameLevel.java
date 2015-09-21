@@ -1,5 +1,6 @@
 package com.braincollaboration.colormaster.activities;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.MotionEvent;
@@ -31,7 +32,7 @@ import cat.ppicas.customtypeface.CustomTypefaceFactory;
 /**
  * Main game level. Contains NormalMode and MirroredMode
  */
-public class GameLevel extends BaseGameActivity implements View.OnTouchListener, View.OnClickListener {
+public class GameLevel extends Activity implements View.OnTouchListener, View.OnClickListener {
 
     private static final int LEFT_SIDE_ID = 100;
     private static final int RIGHT_SIDE_ID = 200;
@@ -97,13 +98,13 @@ public class GameLevel extends BaseGameActivity implements View.OnTouchListener,
                 break;
             case R.id.game_over_leaderboard:
 //                pushAccomplishments(score, true);  //TODO Google play service push score to leaderboard
-                try {
-                    startActivityForResult(Games.Leaderboards.getAllLeaderboardsIntent(getApiClient()),
-                            PreferenceUtil.getInt(this, getString(R.string.pref_key_show_leaderboard_requestcode), 500));
-                } catch (Exception ex) {
-                    getApiClient().connect();
-                }
-                break;
+//                try {
+//                    startActivityForResult(Games.Leaderboards.getAllLeaderboardsIntent(getApiClient()),
+//                            PreferenceUtil.getInt(this, getString(R.string.pref_key_show_leaderboard_requestcode), 500));
+//                } catch (Exception ex) {
+//                    getApiClient().connect();
+//                }
+//                break;
         }
     }
 
@@ -418,13 +419,13 @@ public class GameLevel extends BaseGameActivity implements View.OnTouchListener,
         }
     }
 
-    @Override
-    public void onSignInFailed() {
-
-    }
-
-    @Override
-    public void onSignInSucceeded() {
-
-    }
+//    @Override
+//    public void onSignInFailed() {
+//
+//    }
+//
+//    @Override
+//    public void onSignInSucceeded() {
+//
+//    }
 }

@@ -1,103 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
     android:background="@drawable/main_menu_background"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:weightSum="3">
+        android:gravity="center"
+        android:orientation="vertical"
+        android:weightSum="3">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center|bottom"
-        android:paddingBottom="15dp">
-
-        <TextView
-            android:id="@+id/app_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:gravity="center|bottom"
-            android:text="@string/app_name"
-            android:textColor="@android:color/black"
-            android:textSize="50sp"
-            android:textStyle="bold"
-            app:customTypeface="main_font"
-            tools:ignore="MissingPrefix" />
+            android:paddingBottom="15dp">
+
+            <TextView
+                android:id="@+id/app_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|bottom"
+                android:text="@string/app_name"
+                android:textColor="@android:color/black"
+                android:textSize="50sp"
+                android:textStyle="bold"
+                app:customTypeface="main_font"
+                tools:ignore="MissingPrefix" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_level_mode_normal"
+                style="@style/ButtonMainMenuGameMod"
+                android:text="@string/mode_normal"
+                app:customTypeface="main_font"
+                tools:ignore="MissingPrefix" />
+
+            <ImageButton
+                android:id="@+id/level_chooser_btn_play"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@android:color/transparent"
+                android:scaleType="centerInside"
+                android:src="@drawable/selector_play" />
+
+            <Button
+                android:id="@+id/btn_level_mode_mirrored"
+                style="@style/ButtonMainMenuGameMod"
+                android:text="@string/mode_mirror"
+                app:customTypeface="main_font"
+                tools:ignore="MissingPrefix" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingBottom="5dp"
+            android:paddingTop="15dp">
+
+            <ImageButton
+                android:id="@+id/level_chooser_btn_leaderboard"
+                style="@style/ButtonMainMenuChoose"
+                android:src="@drawable/selector_leaderboard" />
+
+            <ImageButton
+                android:id="@+id/level_chooser_btn_markapp"
+                style="@style/ButtonMainMenuChoose"
+                android:src="@drawable/selector_markapp" />
+
+            <ImageButton
+                android:id="@+id/level_chooser_btn_sounds"
+                style="@style/ButtonMainMenuChoose"
+                android:src="@drawable/selector_sound_on" />
+
+            <ImageButton
+                android:id="@+id/level_chooser_btn_help"
+                style="@style/ButtonMainMenuChoose"
+                android:src="@drawable/selector_help" />
+
+        </LinearLayout>
 
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btn_level_mode_normal"
-            style="@style/ButtonMainMenuGameMod"
-            android:text="@string/mode_normal"
-            app:customTypeface="main_font"
-            tools:ignore="MissingPrefix" />
-
-        <ImageButton
-            android:id="@+id/level_chooser_btn_play"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@android:color/transparent"
-            android:scaleType="centerInside"
-            android:src="@drawable/selector_play" />
-
-        <Button
-            android:id="@+id/btn_level_mode_mirrored"
-            style="@style/ButtonMainMenuGameMod"
-            android:text="@string/mode_mirror"
-            app:customTypeface="main_font"
-            tools:ignore="MissingPrefix" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:paddingBottom="5dp"
-        android:paddingTop="15dp">
-
-        <ImageButton
-            android:id="@+id/level_chooser_btn_leaderboard"
-            style="@style/ButtonMainMenuChoose"
-            android:src="@drawable/selector_leaderboard" />
-
-        <ImageButton
-            android:id="@+id/level_chooser_btn_markapp"
-            style="@style/ButtonMainMenuChoose"
-            android:src="@drawable/selector_markapp" />
-
-        <ImageButton
-            android:id="@+id/level_chooser_btn_difficalty"
-            style="@style/ButtonMainMenuChoose"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_gravity="center|center_vertical"
-            android:src="@android:drawable/ic_lock_idle_lock"
-            android:visibility="invisible" />
-
-        <ImageButton
-            android:id="@+id/level_chooser_btn_sounds"
-            style="@style/ButtonMainMenuChoose"
-            android:src="@drawable/selector_sound_on" />
-
-        <ImageButton
-            android:id="@+id/level_chooser_btn_help"
-            style="@style/ButtonMainMenuChoose"
-            android:src="@drawable/selector_help" />
-
-    </LinearLayout>
-
-</LinearLayout>

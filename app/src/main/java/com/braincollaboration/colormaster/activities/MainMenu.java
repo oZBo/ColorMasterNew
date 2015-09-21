@@ -27,7 +27,7 @@ public class MainMenu extends BaseGameActivity implements View.OnClickListener {
     public static final int ACTIVITY_CODE_SHOW_LEADERBOARD = 500;
 
     private Button btnLevelModeNormal, btnLevelModeMirrored;
-    private ImageButton btnGameDifficulty, btnHelp, btnMarkapp, btnPlay, btnLedaerboard, btnSounds;
+    private ImageButton btnHelp, btnMarkapp, btnPlay, btnLedaerboard, btnSounds;
     private GameMode gameMode = GameMode.NORMAL;
     private SoundManager soundManager;
 //    private EasyRatingDialog easyRatingDialog; //TODO add appRaterDialog
@@ -51,8 +51,6 @@ public class MainMenu extends BaseGameActivity implements View.OnClickListener {
     }
 
     private void initViews() {
-        btnGameDifficulty = (ImageButton) findViewById(R.id.level_chooser_btn_difficalty);
-        btnGameDifficulty.setOnClickListener(this);
         btnHelp = (ImageButton) findViewById(R.id.level_chooser_btn_help);
         btnHelp.setOnClickListener(this);
         btnMarkapp = (ImageButton) findViewById(R.id.level_chooser_btn_markapp);

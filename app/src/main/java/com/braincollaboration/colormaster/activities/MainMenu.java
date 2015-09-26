@@ -122,7 +122,7 @@ public class MainMenu extends BaseGameActivity implements View.OnClickListener {
                 break;
             case R.id.level_chooser_btn_leaderboard:
                 soundManager.play(R.raw.menu_click);
-                if (this.isSignedIn()) {
+                if (mHelper.isSignedIn()) {
                     startActivityForResult(Games.Leaderboards.getAllLeaderboardsIntent(getApiClient()),
                             ACTIVITY_CODE_SHOW_LEADERBOARD);
                 } else {
@@ -155,13 +155,13 @@ public class MainMenu extends BaseGameActivity implements View.OnClickListener {
 
     }
 
-    @Override
     protected void onActivityResult(int requestCode, int responseCode, Intent data) {
-
-        // check for "inconsistent state"
-        if ( responseCode == GamesActivityResultCodes.RESULT_RECONNECT_REQUIRED && requestCode == ACTIVITY_CODE_SHOW_LEADERBOARD)  {
-            // force a disconnect to sync up state, ensuring that mClient reports "not connected"
-            signOut();
+        if (requestCode == ACTIVITY_CODE_SHOW_LEADERBOARD
+                && responseCode == GamesActivityResultCodes.RESULT_RECONNECT_REQUIRED) {
+            mHelper.disconnect();
+            // update your logic here (show login btn, hide logout btn).
+        } else {
+            mHelper.onActivityResult(requestCode, responseCode, data);
         }
     }
 

@@ -1,6 +1,7 @@
 package com.braincollaboration.colormaster.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.MotionEvent;
@@ -16,15 +17,15 @@ import android.widget.TextView;
 
 import com.braincollaboration.colormaster.R;
 import com.braincollaboration.colormaster.engine.Color;
-import com.braincollaboration.colormaster.engine.GameHelper;
+import com.braincollaboration.colormaster.engine.GameHelperUtil;
 import com.braincollaboration.colormaster.engine.GameMode;
 import com.braincollaboration.colormaster.engine.SwipeDirectionListener;
-import com.braincollaboration.colormaster.utils.PreferenceUtil;
 import com.braincollaboration.colormaster.utils.SoundManager;
 import com.braincollaboration.colormaster.utils.VibratorManager;
 import com.braincollaboration.colormaster.views.MirroredOrNormalTextView;
 import com.google.android.gms.games.Games;
-import com.google.example.games.basegameutils.BaseGameActivity;
+import com.google.android.gms.games.GamesActivityResultCodes;
+import com.google.example.games.basegameutils.GameHelper;
 
 import cat.ppicas.customtypeface.CustomTypeface;
 import cat.ppicas.customtypeface.CustomTypefaceFactory;
@@ -32,8 +33,9 @@ import cat.ppicas.customtypeface.CustomTypefaceFactory;
 /**
  * Main game level. Contains NormalMode and MirroredMode
  */
-public class GameLevel extends Activity implements View.OnTouchListener, View.OnClickListener {
+public class GameLevel extends Activity implements View.OnTouchListener, View.OnClickListener, GameHelper.GameHelperListener {
 
+    public static final int ACTIVITY_CODE_SHOW_LEADERBOARD = 500;
     private static final int LEFT_SIDE_ID = 100;
     private static final int RIGHT_SIDE_ID = 200;
     private final static int COUNT_DOWN_INTERVAL = 10;  //Interval to update timers. MilliSeconds
@@ -45,6 +47,7 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
 
     private Color colorLeft, colorRight;
     private GameMode gameMode;
+    private com.google.example.games.basegameutils.GameHelper gameHelper;
 
     private ProgressBar progressBarLeft, progressBarRight;
     private CountDownTimer countDownTimerLeft, countDownTimerRight;
@@ -63,6 +66,9 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
+        gameHelper = new GameHelper(this, GameHelper.CLIENT_GAMES);
+        gameHelper.setup(this);
+        gameHelper.onStart(this);
         soundManager = SoundManager.getInstance(this);
         score = 0;
         gameMode = (GameMode) getIntent().getSerializableExtra(getString(R.string.pref_key_game_mode));
@@ -94,17 +100,15 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
                 onBackPressed();
                 break;
             case R.id.game_over_btn_share:
-                GameHelper.shareScore(this, getString(R.string.share_dialog_part_1) + score + getString(R.string.share_dialog_part_2) + getString(R.string.share_dialog_part_3));
+                GameHelperUtil.shareScore(this, getString(R.string.share_dialog_part_1) + score + getString(R.string.share_dialog_part_2) + getString(R.string.share_dialog_part_3));
                 break;
             case R.id.game_over_leaderboard:
-//                pushAccomplishments(score, true);  //TODO Google play service push score to leaderboard
-//                try {
-//                    startActivityForResult(Games.Leaderboards.getAllLeaderboardsIntent(getApiClient()),
-//                            PreferenceUtil.getInt(this, getString(R.string.pref_key_show_leaderboard_requestcode), 500));
-//                } catch (Exception ex) {
-//                    getApiClient().connect();
-//                }
-//                break;
+                if (gameHelper.isSignedIn()) {
+                    startActivityForResult(Games.Leaderboards.getAllLeaderboardsIntent(gameHelper.getApiClient()),
+                            ACTIVITY_CODE_SHOW_LEADERBOARD);
+                } else {
+                    gameHelper.beginUserInitiatedSignIn();
+                }
         }
     }
 
@@ -186,8 +190,8 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
                 hideGameOverDialog();
                 layoutLeftSide.setOnTouchListener(GameLevel.this);
                 layoutRightSide.setOnTouchListener(GameLevel.this);
-                startSideTimer(LEFT_SIDE_ID, GameHelper.getTimeForLevel(score));
-                startSideTimer(RIGHT_SIDE_ID, GameHelper.getTimeForLevel(score));
+                startSideTimer(LEFT_SIDE_ID, GameHelperUtil.getTimeForLevel(score));
+                startSideTimer(RIGHT_SIDE_ID, GameHelperUtil.getTimeForLevel(score));
                 textViewLeftSide.setVisibility(View.VISIBLE);
                 textViewRightSide.setVisibility(View.VISIBLE);
             }
@@ -258,8 +262,8 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
     }
 
     private void startLevel(GameMode gameMode) {
-        startSideTimer(LEFT_SIDE_ID, GameHelper.getTimeForLevel(score));
-        startSideTimer(RIGHT_SIDE_ID, GameHelper.getTimeForLevel(score));
+        startSideTimer(LEFT_SIDE_ID, GameHelperUtil.getTimeForLevel(score));
+        startSideTimer(RIGHT_SIDE_ID, GameHelperUtil.getTimeForLevel(score));
         hideGameOverDialog();
         generateRightColor(gameMode);
         generateLeftColor(gameMode);
@@ -268,7 +272,7 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
     private void showScoreDialog() {
         if (!layoutGameOver.isShown()) {
             layoutGameOver.setVisibility(View.VISIBLE);
-            tvGameOverBest.setText("" + GameHelper.loadBestScore(this, gameMode));
+            tvGameOverBest.setText("" + GameHelperUtil.loadBestScore(this, gameMode));
             tvGameOverScore.setText("" + score);
         }
     }
@@ -283,12 +287,27 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
 
     private void endLevel() {
         soundManager.play(R.raw.incorrect);
-        if (score > GameHelper.loadBestScore(GameLevel.this, gameMode)) {
-            GameHelper.saveBestScore(GameLevel.this, gameMode, score);
+        if (score > GameHelperUtil.loadBestScore(GameLevel.this, gameMode)) {
+            GameHelperUtil.saveBestScore(GameLevel.this, gameMode, score);
         }
-//        pushAccomplishments(score, false);    //TODO add google play services for game score
+        updateLeaderboard();
         vibrator.vibrate(VIBRATOR_INTERVAL);
         layoutGameOver.startAnimation(fadeIn);
+    }
+
+    private void updateLeaderboard(){
+        if(gameHelper.isSignedIn()) {
+            switch (gameMode) {
+                case MIRRORED:
+                    Games.Leaderboards.submitScore(gameHelper.getApiClient(), getString(R.string.leaderboard_mode_mirrored),
+                            score);
+                    break;
+                case NORMAL:
+                    Games.Leaderboards.submitScore(gameHelper.getApiClient(), getString(R.string.leaderboard_mode_normal),
+                            score);
+                    break;
+            }
+        }
     }
 
     private void nextLevel(int side) {
@@ -298,13 +317,13 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
                 score++;
                 refreshGameScore(score);
                 generateLeftColor(gameMode);
-                startSideTimer(LEFT_SIDE_ID, GameHelper.getTimeForLevel(score));
+                startSideTimer(LEFT_SIDE_ID, GameHelperUtil.getTimeForLevel(score));
                 break;
             case RIGHT_SIDE_ID:
                 score++;
                 refreshGameScore(score);
                 generateRightColor(gameMode);
-                startSideTimer(RIGHT_SIDE_ID, GameHelper.getTimeForLevel(score));
+                startSideTimer(RIGHT_SIDE_ID, GameHelperUtil.getTimeForLevel(score));
                 break;
         }
     }
@@ -316,7 +335,7 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
                 textViewLeftSide.setTextDrawingNormal();
                 break;
             case MIRRORED:
-                if (GameHelper.getRandomBoolean())
+                if (GameHelperUtil.getRandomBoolean())
                     textViewLeftSide.setTextDrawingMirrored();
                 else
                     textViewLeftSide.setTextDrawingNormal();
@@ -334,7 +353,7 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
                 textViewRightSide.setTextDrawingNormal();
                 break;
             case MIRRORED:
-                if (GameHelper.getRandomBoolean())
+                if (GameHelperUtil.getRandomBoolean())
                     textViewRightSide.setTextDrawingMirrored();
                 else
                     textViewRightSide.setTextDrawingNormal();
@@ -419,13 +438,24 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
         }
     }
 
-//    @Override
-//    public void onSignInFailed() {
-//
-//    }
-//
-//    @Override
-//    public void onSignInSucceeded() {
-//
-//    }
+    protected void onActivityResult(int requestCode, int responseCode, Intent data) {
+        if (requestCode == ACTIVITY_CODE_SHOW_LEADERBOARD
+                && responseCode == GamesActivityResultCodes.RESULT_RECONNECT_REQUIRED) {
+            gameHelper.disconnect();
+            // update your logic here (show login btn, hide logout btn).
+        } else {
+            updateLeaderboard();
+            gameHelper.onActivityResult(requestCode, responseCode, data);
+        }
+    }
+
+    @Override
+    public void onSignInFailed() {
+
+    }
+
+    @Override
+    public void onSignInSucceeded() {
+
+    }
 }

@@ -10,7 +10,7 @@ import com.braincollaboration.colormaster.utils.PreferenceUtil;
 
 import java.util.Random;
 
-public class GameHelper {
+public class GameHelperUtil {
 
     /**
      * @param score

@@ -8,9 +8,6 @@ import com.braincollaboration.colormaster.utils.PreferenceUtil;
 import com.github.paolorotolo.appintro.AppIntro;
 import com.github.paolorotolo.appintro.AppIntroFragment;
 
-import cat.ppicas.customtypeface.CustomTypeface;
-import cat.ppicas.customtypeface.CustomTypefaceFactory;
-
 /**
  * Game tutorial activity
  */
@@ -39,6 +36,9 @@ public class Tutorial extends AppIntro {
 
         gameLevel = new Intent(this, GameLevel.class);
         gameLevel.putExtra(getString(R.string.pref_key_game_mode), getIntent().getSerializableExtra(getString(R.string.pref_key_game_mode)));
+        if (getIntent().getBooleanExtra(MainMenu.IS_GOOGLE_GAMES_LOGED_IN, false)) {
+            gameLevel.putExtra(MainMenu.IS_GOOGLE_GAMES_LOGED_IN, true);
+        }
 
     }
 

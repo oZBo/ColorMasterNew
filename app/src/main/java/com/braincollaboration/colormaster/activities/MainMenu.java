@@ -1,6 +1,7 @@
 package com.braincollaboration.colormaster.activities;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -26,11 +27,13 @@ import cat.ppicas.customtypeface.CustomTypefaceFactory;
 public class MainMenu extends BaseGameActivity implements View.OnClickListener {
 
     public static final int ACTIVITY_CODE_SHOW_LEADERBOARD = 500;
+    public static final String IS_GOOGLE_GAMES_LOGED_IN = "isGoogleGamesLoggedIn";
 
     private Button btnLevelModeNormal, btnLevelModeMirrored;
     private ImageButton btnHelp, btnMarkapp, btnPlay, btnLedaerboard, btnSounds;
     private GameMode gameMode = GameMode.NORMAL;
     private SoundManager soundManager;
+    private boolean isGooglePlayInit = false;
 //    private EasyRatingDialog easyRatingDialog; //TODO add appRaterDialog
 
     @Override
@@ -104,12 +107,12 @@ public class MainMenu extends BaseGameActivity implements View.OnClickListener {
             case R.id.level_chooser_btn_markapp:
                 soundManager.play(R.raw.menu_click);
                 //TODO before publishing app uncomment "go to the market" functionality
-//                final String appPackageName = getPackageName(); // getPackageName() from Context or Activity object
-//                try {
-//                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
-//                } catch (android.content.ActivityNotFoundException anfe) {
-//                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
-//                }
+                final String appPackageName = getPackageName(); // getPackageName() from Context or Activity object
+                try {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+                } catch (android.content.ActivityNotFoundException anfe) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+                }
                 break;
             case R.id.level_chooser_btn_play:
                 soundManager.play(R.raw.menu_click);
@@ -118,6 +121,7 @@ public class MainMenu extends BaseGameActivity implements View.OnClickListener {
                 } else {
                     nextActivity = new Intent(this, GameLevel.class);
                 }
+                nextActivity.putExtra(IS_GOOGLE_GAMES_LOGED_IN, isGooglePlayInit);
                 nextActivity.putExtra(getString(R.string.pref_key_game_mode), gameMode);
                 startActivity(nextActivity);
                 break;
@@ -168,11 +172,11 @@ public class MainMenu extends BaseGameActivity implements View.OnClickListener {
 
     @Override
     public void onSignInFailed() {
-
+        isGooglePlayInit = false;
     }
 
     @Override
     public void onSignInSucceeded() {
-
+        isGooglePlayInit = true;
     }
 }

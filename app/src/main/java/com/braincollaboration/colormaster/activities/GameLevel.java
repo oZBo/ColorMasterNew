@@ -52,6 +52,7 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
     private Color colorLeft, colorRight;
     private GameMode gameMode;
     private com.google.example.games.basegameutils.GameHelper gameHelper;
+    private boolean isGoogleGamesConnected;
 
     private ProgressBar progressBarLeft, progressBarRight;
     private CountDownTimer countDownTimerLeft, countDownTimerRight;
@@ -71,8 +72,9 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         gameHelper = new GameHelper(this, GameHelper.CLIENT_GAMES);
-        gameHelper.setup(this);
-        gameHelper.onStart(this);
+        if(getIntent().getBooleanExtra(MainMenu.IS_GOOGLE_GAMES_LOGED_IN, false)){
+            initGoogleGamesService();
+        }
         soundManager = SoundManager.getInstance(this);
         score = 0;
         gameMode = (GameMode) getIntent().getSerializableExtra(getString(R.string.pref_key_game_mode));
@@ -85,6 +87,13 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
         initAdvertise();
     }
 
+    private void initGoogleGamesService(){
+        if(!isGoogleGamesConnected) {
+            gameHelper.setup(this);
+            gameHelper.onStart(this);
+            isGoogleGamesConnected = true;
+        }
+    }
 
     private void initAdvertise(){
         Appodeal.initialize(this, APPODEAL_KEY, Appodeal.INTERSTITIAL);
@@ -124,6 +133,7 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
                     startActivityForResult(Games.Leaderboards.getAllLeaderboardsIntent(gameHelper.getApiClient()),
                             ACTIVITY_CODE_SHOW_LEADERBOARD);
                 } else {
+                    initGoogleGamesService();
                     gameHelper.beginUserInitiatedSignIn();
                 }
         }

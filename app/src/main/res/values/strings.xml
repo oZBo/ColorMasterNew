@@ -36,7 +36,7 @@
 
     <string name="share_dialog_part_1">WOW! I scored&#160;</string>
     <string name="share_dialog_part_2">&#160;points in Color Master game on Android </string>
-    <string name="share_dialog_part_3">&#160;linkToTheGameOnAndroidMarket&#160;</string>
+    <string name="share_dialog_part_3">&#160;https://play.google.com/store/apps/details?id=com.braincollaboration.colormaster&#160;</string>
     <!--End app strings-->
 
     <!--Strings for appRaterDialog-->

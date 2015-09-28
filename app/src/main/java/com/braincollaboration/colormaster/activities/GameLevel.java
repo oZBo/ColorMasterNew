@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.appodeal.ads.Appodeal;
 import com.braincollaboration.colormaster.R;
 import com.braincollaboration.colormaster.engine.Color;
 import com.braincollaboration.colormaster.engine.GameHelperUtil;
@@ -35,6 +36,8 @@ import cat.ppicas.customtypeface.CustomTypefaceFactory;
  */
 public class GameLevel extends Activity implements View.OnTouchListener, View.OnClickListener, GameHelper.GameHelperListener {
 
+    private static final String APPODEAL_KEY = "414827a25f3e7b76f79681b5ac840a19ab5319a9d5702ece";
+    private static final int GAME_OVERS_TO_SHOW_ADVERTISE = 3;
     public static final int ACTIVITY_CODE_SHOW_LEADERBOARD = 500;
     private static final int LEFT_SIDE_ID = 100;
     private static final int RIGHT_SIDE_ID = 200;
@@ -44,6 +47,7 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
 
     private static int score = 0;                       //Game score for current mode
     private float YstartPoint = 0, YEndPoint = 0;       //Values for calculating user swipe direction
+    private int advertiseCounter = 0;
 
     private Color colorLeft, colorRight;
     private GameMode gameMode;
@@ -78,7 +82,20 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
         initViews();
         initAnimations();
         startLevel(gameMode);
+        initAdvertise();
+    }
 
+
+    private void initAdvertise(){
+        Appodeal.initialize(this, APPODEAL_KEY, Appodeal.INTERSTITIAL);
+        Appodeal.cache(this, Appodeal.INTERSTITIAL);
+    }
+
+    private void showSdvertiseIfCan(){
+        if(++advertiseCounter == GAME_OVERS_TO_SHOW_ADVERTISE){
+            Appodeal.show(this, Appodeal.INTERSTITIAL);
+            advertiseCounter = 0;
+        }
     }
 
     @Override
@@ -162,6 +179,7 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
 
             @Override
             public void onAnimationEnd(Animation animation) {
+                showSdvertiseIfCan();
                 btnReplay.setClickable(true);
             }
 

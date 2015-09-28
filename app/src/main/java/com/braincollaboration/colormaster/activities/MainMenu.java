@@ -8,6 +8,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.appodeal.ads.Appodeal;
 import com.braincollaboration.colormaster.R;
 import com.braincollaboration.colormaster.engine.GameMode;
 import com.braincollaboration.colormaster.utils.PreferenceUtil;

@@ -12,7 +12,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.appodeal.ads.Appodeal;
@@ -54,7 +53,6 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
     private com.google.example.games.basegameutils.GameHelper gameHelper;
     private boolean isGoogleGamesConnected;
 
-    private ProgressBar progressBarLeft, progressBarRight;
     private CountDownTimer countDownTimerLeft, countDownTimerRight;
     private MirroredOrNormalTextView textViewLeftSide, textViewRightSide;
     private LinearLayout layoutLeftSide, layoutRightSide, layoutGameOver;
@@ -156,8 +154,6 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
         layoutGameOver.setVisibility(View.GONE);
         textViewLeftSide = (MirroredOrNormalTextView) findViewById(R.id.textview_left_side);
         textViewRightSide = (MirroredOrNormalTextView) findViewById(R.id.textview_right_side);
-        progressBarLeft = (ProgressBar) findViewById(R.id.progress_left);
-        progressBarRight = (ProgressBar) findViewById(R.id.progress_right);
         tvGameOverScore = (TextView) findViewById(R.id.game_over_tv_score);
         tvGameOverBest = (TextView) findViewById(R.id.game_over_tv_best);
         btnReplay = (ImageButton) findViewById(R.id.game_over_btn_replay);
@@ -207,8 +203,6 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
                 score = 0;
                 refreshGameScore(score);
                 btnReplay.setClickable(false);
-                progressBarLeft.setProgress(progressBarLeft.getMax());
-                progressBarRight.setProgress(progressBarRight.getMax());
                 generateLeftColor(gameMode);
                 generateRightColor(gameMode);
             }
@@ -246,20 +240,16 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
             case LEFT_SIDE_ID:
                 fallingDownLeft.setDuration(levelTime);
                 textViewLeftSide.startAnimation(fallingDownLeft);
-                progressBarLeft.setMax(levelTime);
                 if (countDownTimerLeft != null) {
                     countDownTimerLeft.cancel();
                 }
                 countDownTimerLeft = new CountDownTimer(levelTime, COUNT_DOWN_INTERVAL) {
                     @Override
                     public void onTick(long millisUntilFinished) {
-                        progressBarLeft.setProgress((int) millisUntilFinished);
-
                     }
 
                     @Override
                     public void onFinish() {
-                        progressBarLeft.setProgress(0);
                         endLevel();
                     }
                 };
@@ -268,19 +258,16 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
             case RIGHT_SIDE_ID:
                 fallingDownRight.setDuration(levelTime);
                 textViewRightSide.startAnimation(fallingDownRight);
-                progressBarRight.setMax(levelTime);
                 if (countDownTimerRight != null) {
                     countDownTimerRight.cancel();
                 }
                 countDownTimerRight = new CountDownTimer(levelTime, COUNT_DOWN_INTERVAL) {
                     @Override
                     public void onTick(long millisUntilFinished) {
-                        progressBarRight.setProgress((int) millisUntilFinished);
                     }
 
                     @Override
                     public void onFinish() {
-                        progressBarRight.setProgress(0);
                         endLevel();
                     }
                 };

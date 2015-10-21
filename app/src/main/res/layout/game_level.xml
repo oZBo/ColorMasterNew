@@ -1,46 +1,14 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/black">
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="@color/black">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2">
-
-            <ProgressBar
-                android:id="@+id/progress_left"
-                style="@android:style/Widget.ProgressBar.Horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="15dp"
-                android:layout_weight="1"
-                android:indeterminate="false"
-                android:paddingRight="2dp"
-                android:progressDrawable="@drawable/progress_drawable"
-                android:visibility="gone" />
-
-            <com.braincollaboration.colormaster.views.MirroredProgressBar
-                android:id="@+id/progress_right"
-                style="@android:style/Widget.ProgressBar.Horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="15dp"
-                android:layout_gravity="bottom"
-                android:layout_weight="1"
-                android:indeterminate="false"
-                android:paddingRight="2dp"
-                android:progressDrawable="@drawable/progress_drawable"
-                android:visibility="gone" />
-
-        </LinearLayout>
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -63,7 +31,7 @@
                     style="@style/TextViewGameLevel"
                     android:text="LeftSide"
                     app:customTypeface="main_font"
-                    tools:ignore="MissingPrefix" />
+                    tools:ignore="MissingPrefix"/>
 
             </LinearLayout>
 
@@ -81,7 +49,7 @@
                     style="@style/TextViewGameLevel"
                     android:text="RightSide"
                     app:customTypeface="main_font"
-                    tools:ignore="MissingPrefix" />
+                    tools:ignore="MissingPrefix"/>
 
             </LinearLayout>
 
@@ -93,7 +61,7 @@
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_gravity="center"
-        android:src="@drawable/game_level_score_bg" />
+        android:src="@drawable/game_level_score_bg"/>
 
     <TextView
         android:id="@+id/tv_score"
@@ -105,9 +73,9 @@
         android:textColor="@android:color/black"
         android:textSize="25sp"
         app:customTypeface="main_font"
-        tools:ignore="MissingPrefix" />
+        tools:ignore="MissingPrefix"/>
 
-    <include layout="@layout/game_over_overlay" />
+    <include layout="@layout/game_over_overlay"/>
 
 
 </FrameLayout>

@@ -2,6 +2,8 @@ package com.braincollaboration.colormaster.views;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
@@ -26,6 +28,15 @@ public class MirroredOrNormalTextView extends TextView {
 
     @Override
     protected void onDraw(Canvas canvas) {
+        int textColor = getTextColors().getDefaultColor();
+        setTextColor(Color.BLACK); // your stroke's color
+        getPaint().setStrokeWidth(14);
+        getPaint().setStyle(Paint.Style.STROKE);
+        super.onDraw(canvas);
+        setTextColor(textColor);
+        getPaint().setStrokeWidth(0);
+        getPaint().setStyle(Paint.Style.FILL);
+        super.onDraw(canvas);
         if (isMirrored) {
             canvas.translate(getWidth(), 0);
             canvas.scale(-1, 1);

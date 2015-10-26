@@ -9,7 +9,6 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import com.appodeal.ads.Appodeal;
 import com.braincollaboration.colormaster.R;
 import com.braincollaboration.colormaster.engine.GameMode;
 import com.braincollaboration.colormaster.utils.PreferenceUtil;
@@ -96,7 +95,7 @@ public class MainMenu extends BaseGameActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        Intent nextActivity = null;
+        Intent nextActivity;
         switch (v.getId()) {
             case R.id.level_chooser_btn_help:
                 soundManager.play(R.raw.menu_click);

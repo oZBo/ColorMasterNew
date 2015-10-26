@@ -28,6 +28,10 @@ public class MirroredOrNormalTextView extends TextView {
 
     @Override
     protected void onDraw(Canvas canvas) {
+        if (isMirrored) {
+            canvas.translate(getWidth(), 0);
+            canvas.scale(-1, 1);
+        }
         int textColor = getTextColors().getDefaultColor();
         setTextColor(Color.BLACK); // your stroke's color
         getPaint().setStrokeWidth(14);
@@ -36,11 +40,6 @@ public class MirroredOrNormalTextView extends TextView {
         setTextColor(textColor);
         getPaint().setStrokeWidth(0);
         getPaint().setStyle(Paint.Style.FILL);
-        super.onDraw(canvas);
-        if (isMirrored) {
-            canvas.translate(getWidth(), 0);
-            canvas.scale(-1, 1);
-        }
         super.onDraw(canvas);
     }
 

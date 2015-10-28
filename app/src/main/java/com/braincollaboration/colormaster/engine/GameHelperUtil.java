@@ -45,7 +45,7 @@ public class GameHelperUtil {
         } else if (score <= 70 && score > 65) {
             return 1500;
         }
-        return 1100;
+        return 1300;
     }
 
     private static Random rnd = new Random();

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Color Master</string>
+
+    <!--Color names-->
+    <string name="color_red">červená</string>
+    <string name="color_pink">růžový</string>
+    <string name="color_purple">nachový</string>
+    <string name="color_indigo">Tmavě modrá</string>
+    <string name="color_blue">Světle modrá</string>
+    <string name="color_turquoise">Tyrkysový</string>
+    <string name="color_green">Zelená</string>
+    <string name="color_yellow">Žlutá</string>
+    <string name="color_orange">pomeranč</string>
+    <string name="color_brown">Hnědé</string>
+    <!--End color names-->
+
+    <!--App strings-->
+    <string name="game_over">KONEC HRY</string>
+    <string name="score">ÚČET</string>
+    <string name="best">NEJLEPŠÍ</string>
+    <string name="mode_normal">&#160;&#160;rozumný&#160;&#160;</string>
+    <string name="mode_mirror">&#160;Zrcadlová&#160;</string>
+
+    <string name="signin_other_error">Něco se pokazilo, když se snaží přihlásit. Zkuste to prosím později.</string>
+    <string name="signin_failure">Nelze se přihlásit.</string>
+    <string name="check_internet">Zkontrolujte prosím připojení k internetu!</string>
+
+    <string name="share_dialog_part_1">Wow! I vydělal&#160;</string>
+    <string name="share_dialog_part_2">&#160;body, ve hře "Color Master" pro android</string>
+    <string name="share_dialog_part_3">&#160;https://play.google.com/store/apps/details?id=com.braincollaboration.colormaster&#160;</string>
+    <!--End app strings-->
+
+    <!-- Strings for tutorial activity-->
+    <string name="tutorial_1_title">Pravidla jsou jednoduchá!</string>
+    <string name="tutorial_1_description">V případě, že název se shoduje s barvou jeho pozadí, to vede nahoru - ne-li dolů.</string>
+    <string name="tutorial_2_title">Čas je důležitý!</string>
+    <string name="tutorial_2_description">Zjistěte, až vyprší čas.</string>
+    <string name="tutorial_3_title">názvy barev</string>
+    <string name="skip_button">Přejít na obsah</string>
+    <string name="done_button">Připraveno</string>
+    <!-- end tutorial activity-->
+</resources>

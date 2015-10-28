@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Color Master</string>
+
+    <!--Color names-->
+    <string name="color_red">đỏ</string>
+    <string name="color_pink">màu hồng</string>
+    <string name="color_purple">màu đỏ tía</string>
+    <string name="color_indigo">chàm</string>
+    <string name="color_blue">màu xanh</string>
+    <string name="color_turquoise">turkuoise</string>
+    <string name="color_green">xanh</string>
+    <string name="color_yellow">yellen</string>
+    <string name="color_orange">trái cam</string>
+    <string name="color_brown">trán</string>
+    <!--End color names-->
+
+    <!--App strings-->
+    <string name="game_over">GAME OVER</string>
+    <string name="score">QUARELL</string>
+    <string name="best">NHẤT</string>
+    <string name="mode_normal">&#160;&#160;bình thường&#160;&#160;</string>
+    <string name="mode_mirror">&#160;nhân đôi&#160;</string>
+
+    <string name="signin_other_error">Thera bạn một tín hiệu Issa thứ VI tại. Hãy Tạo bọt ba lần nữa.</string>
+    <string name="signin_failure">Không thể là tín hiệu trong.</string>
+    <string name="check_internet">Xin Cesky tsonnetstion trực tuyến hợp pháp!</string>
+
+    <string name="share_dialog_part_1">BOB! và skored&#160;</string>
+    <string name="share_dialog_part_2">&#160;John chỉ Kolor Sư Phụ, ông din Android</string>
+    <string name="share_dialog_part_3">&#160;https://play.google.com/store/apps/details?id=com.braincollaboration.colormaster&#160;</string>
+    <!--End app strings-->
+
+    <!-- Strings for tutorial activity-->
+    <string name="tutorial_1_title">Simple rulesov!</string>
+    <string name="tutorial_1_description">Batskground IFS Màu Nameh sama al ITE của, quét đầu, othervise - Downey.</string>
+    <string name="tutorial_2_title">Theme IS quan trọng!</string>
+    <string name="tutorial_2_description">Deside cho đến thời gian gói.</string>
+    <string name="tutorial_3_title">màu sắc tên</string>
+    <string name="skip_button">Bỏ qua</string>
+    <string name="done_button">Don</string>
+    <!-- end tutorial activity-->
+</resources>

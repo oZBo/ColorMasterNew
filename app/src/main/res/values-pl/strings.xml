@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Color Master</string>
+
+    <!--Color names-->
+    <string name="color_red">Czerwony</string>
+    <string name="color_pink">Rose</string>
+    <string name="color_purple">Purpurowy</string>
+    <string name="color_indigo">Ciemnoniebieski</string>
+    <string name="color_blue">Jasnoniebieski</string>
+    <string name="color_turquoise">Turkus</string>
+    <string name="color_green">Zielony</string>
+    <string name="color_yellow">żółty</string>
+    <string name="color_orange">Pomarańczowy</string>
+    <string name="color_brown">Brązowy</string>
+    <!--End color names-->
+
+    <!--App strings-->
+    <string name="game_over">GAME OVER</string>
+    <string name="score">RACHUNEK</string>
+    <string name="best">NAJLEPSZY</string>
+    <string name="mode_normal">&#160;&#160;Normalny&#160;&#160;</string>
+    <string name="mode_mirror">&#160;Lustro&#160;</string>
+
+    <string name="signin_other_error">Coś poszło nie tak, gdy próbuje się zalogować. Spróbuj ponownie później.</string>
+    <string name="signin_failure">Nie możesz się zalogować.</string>
+    <string name="check_internet">Proszę sprawdzić połączenie z Internetem!</string>
+
+    <string name="share_dialog_part_1">Wow! zarobiłem&#160;</string>
+    <string name="share_dialog_part_2">&#160;punkty, w grze "Color Master" dla Androida</string>
+    <string name="share_dialog_part_3">&#160;https://play.google.com/store/apps/details?id=com.braincollaboration.colormaster&#160;</string>
+    <!--End app strings-->
+
+    <!-- Strings for tutorial activity-->
+    <string name="tutorial_1_title">Zasady są proste!</string>
+    <string name="tutorial_1_description">Jeśli nazwa pasuje do koloru jej tle, prowadzi się - jeśli nie w dół.</string>
+    <string name="tutorial_2_title">Czas jest ważna!</string>
+    <string name="tutorial_2_description">Ustal, aż skończy się czas.</string>
+    <string name="tutorial_3_title">nazwy kolorów</string>
+    <string name="skip_button">Przejdź do treści</string>
+    <string name="done_button">Gotowy</string>
+    <!-- end tutorial activity-->
+</resources>

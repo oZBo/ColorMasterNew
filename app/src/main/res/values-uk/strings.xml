@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Color Master</string>
+
+    <!--Color names-->
+    <string name="color_red">Червоний</string>
+    <string name="color_pink">Рожевий</string>
+    <string name="color_purple">Фiолетовий</string>
+    <string name="color_indigo">Синiй</string>
+    <string name="color_blue">Блакитний</string>
+    <string name="color_turquoise">Бірюзовий</string>
+    <string name="color_green">Зелений</string>
+    <string name="color_yellow">Жовтий</string>
+    <string name="color_orange">Помаранчевий</string>
+    <string name="color_brown">Коричневий</string>
+    <!--End color names-->
+
+    <!--App strings-->
+    <string name="game_over">ГРУ СКIНЧЕНО</string>
+    <string name="score">РАХУНОК</string>
+    <string name="best">КРАЩIЙ</string>
+    <string name="mode_normal">&#160;&#160;Нормальний&#160;&#160;</string>
+    <string name="mode_mirror">&#160;Дзеркальний&#160;</string>
+
+    <string name="signin_other_error">Щось пiшло не так пiд час авторизації. Будь-ласка спробуй пiзнiше.</string>
+    <string name="signin_failure">Не виходить авторизуватися.</string>
+    <string name="check_internet">Будь-ласка, перевір інтернет підключення!</string>
+
+    <string name="share_dialog_part_1">Ого! Я заробив&#160;</string>
+    <string name="share_dialog_part_2">&#160;балів, у грі "Color Master" для android</string>
+    <string name="share_dialog_part_3">&#160;https://play.google.com/store/apps/details?id=com.braincollaboration.colormaster&#160;</string>
+    <!--End app strings-->
+
+    <!-- Strings for tutorial activity-->
+    <string name="tutorial_1_title">Правила прості!</string>
+    <string name="tutorial_1_description">Якщо назва кольору збігається з його фоном, веди вгору, якщо ні - вниз.</string>
+    <string name="tutorial_2_title">Час важливий!</string>
+    <string name="tutorial_2_description">Визначся поки не закінчитися час.</string>
+    <string name="tutorial_3_title">Назви кольорiв</string>
+    <string name="skip_button">Пропустити</string>
+    <string name="done_button">Добре</string>
+    <!-- end tutorial activity-->
+</resources>

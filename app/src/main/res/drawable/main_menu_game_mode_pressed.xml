@@ -7,7 +7,7 @@
 
     <!-- view border color and width -->
     <stroke
-        android:width="3dp"
+        android:width="5dp"
         android:color="#000001" />
 
     <!-- If you want to add some padding -->

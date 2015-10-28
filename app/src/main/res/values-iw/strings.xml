@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Color Master</string>
+
+    <!--Color names-->
+    <string name="color_red">אדום</string>
+    <string name="color_pink">רוז</string>
+    <string name="color_purple">סגול</string>
+    <string name="color_indigo">כחול כהה</string>
+    <string name="color_blue">כחול-אור</string>
+    <string name="color_turquoise">טורקיז</string>
+    <string name="color_green">ירוק</string>
+    <string name="color_yellow">צהוב</string>
+    <string name="color_orange">אורנג '</string>
+    <string name="color_brown">בראון</string>
+    <!--End color names-->
+
+    <!--App strings-->
+    <string name="game_over">GAME OVER</string>
+    <string name="score">חשבון</string>
+    <string name="best">הטוב ביותר</string>
+    <string name="mode_normal">&#160;&#160;שפוי&#160;&#160;</string>
+    <string name="mode_mirror">&#160;מראה&#160;</string>
+
+    <string name="signin_other_error">משהו השתבש בעת הניסיון להתחבר. אנא נסה שוב מאוחר יותר.</string>
+    <string name="signin_failure">לא מצליח להתחבר.</string>
+    <string name="check_internet">אנא בדוק את חיבור אינטרנט!</string>
+
+    <string name="share_dialog_part_1">וואו! אני הרווחתי&#160;</string>
+    <string name="share_dialog_part_2">&#160;נקודות, במשחק "הצבע מאסטר" עבור אנדרואיד</string>
+    <string name="share_dialog_part_3">&#160;https://play.google.com/store/apps/details?id=com.braincollaboration.colormaster&#160;</string>
+    <!--End app strings-->
+
+    <!-- Strings for tutorial activity-->
+    <string name="tutorial_1_title">החוקים הם פשוטים!</string>
+    <string name="tutorial_1_description">אם השם תואם את הצבע של הרקע שלה, היא מובילה את - אם לא למטה.</string>
+    <string name="tutorial_2_title">הזמן הוא חשוב!</string>
+    <string name="tutorial_2_description">לקבוע עד שנגמר זמן.</string>
+    <string name="tutorial_3_title">השמות של צבעים</string>
+    <string name="skip_button">דלג לתוכן</string>
+    <string name="done_button">מוכן</string>
+    <!-- end tutorial activity-->
+</resources>

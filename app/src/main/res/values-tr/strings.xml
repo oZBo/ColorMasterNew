@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Color Master</string>
+
+    <!--Color names-->
+    <string name="color_red">kızıl</string>
+    <string name="color_pink">Gül</string>
+    <string name="color_purple">mor</string>
+    <string name="color_indigo">lacivert</string>
+    <string name="color_blue">açık mavi</string>
+    <string name="color_turquoise">turkuvaz</string>
+    <string name="color_green">Yeşil</string>
+    <string name="color_yellow">sarı</string>
+    <string name="color_orange">portakal</string>
+    <string name="color_brown">kahverengi</string>
+    <!--End color names-->
+
+    <!--App strings-->
+    <string name="game_over">OYUN BİTTİ</string>
+    <string name="score">HESAP</string>
+    <string name="best">İYİ</string>
+    <string name="mode_normal">&#160;&#160;aklı başında&#160;&#160;</string>
+    <string name="mode_mirror">&#160;Ayna&#160;</string>
+
+    <string name="signin_other_error">Bir şey giriş çalışırken ters gitti. Daha sonra tekrar deneyiniz.</string>
+    <string name="signin_failure">Giriş yapamıyorum.</string>
+    <string name="check_internet">İnternet bağlantınızı kontrol edin!</string>
+
+    <string name="share_dialog_part_1">Vay! Ben kazandı&#160;</string>
+    <string name="share_dialog_part_2">&#160;noktaları, android için oyun "Color Usta" olarak</string>
+    <string name="share_dialog_part_3">&#160;https://play.google.com/store/apps/details?id=com.braincollaboration.colormaster&#160;</string>
+    <!--End app strings-->
+
+    <!-- Strings for tutorial activity-->
+    <string name="tutorial_1_title">Kurallar basit!</string>
+    <string name="tutorial_1_description">Adı, arka plan rengini eşleşirse, o kadar yol - değil aşağı eğer.</string>
+    <string name="tutorial_2_title">Zaman önemlidir!</string>
+    <string name="tutorial_2_description">Zaman biterse kadar belirleyin.</string>
+    <string name="tutorial_3_title">renk isimleri</string>
+    <string name="skip_button">içeriğe atla</string>
+    <string name="done_button">hazır</string>
+    <!-- end tutorial activity-->
+</resources>

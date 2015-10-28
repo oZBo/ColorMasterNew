@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Color Master</string>
+
+    <!--Color names-->
+    <string name="color_red">Rouge</string>
+    <string name="color_pink">Rose</string>
+    <string name="color_purple">Violet</string>
+    <string name="color_indigo">Indigo</string>
+    <string name="color_blue">Bleu</string>
+    <string name="color_turquoise">Turquoise</string>
+    <string name="color_green">Couleur verte</string>
+    <string name="color_yellow">Jaune</string>
+    <string name="color_orange">Orange</string>
+    <string name="color_brown">Marron</string>
+    <!--End color names-->
+
+    <!--App strings-->
+    <string name="game_over">FIN DU JEU</string>
+    <string name="score">BUT</string>
+    <string name="best">MEILLEUR</string>
+    <string name="mode_normal">&#160;&#160;Ordinaire&#160;&#160;</string>
+    <string name="mode_mirror">&#160;Miroir&#160;</string>
+
+    <string name="signin_other_error">Il y avait un problème avec le signe de. S\'il vous plaît réessayer plus tard.</string>
+    <string name="signin_failure">Impossible de vous connecter.</string>
+    <string name="check_internet">S\'il vous plaît vérifier votre connexion Internet!</string>
+
+    <string name="share_dialog_part_1">HOU LA LA! je marque&#160;</string>
+    <string name="share_dialog_part_2">&#160;points en couleur jeu Master sur Android </string>
+    <string name="share_dialog_part_3">&#160;https://play.google.com/store/apps/details?id=com.braincollaboration.colormaster&#160;</string>
+    <!--End app strings-->
+
+    <!-- Strings for tutorial activity-->
+    <string name="tutorial_1_title">Des règles simples!</string>
+    <string name="tutorial_1_description">Si le nom de la couleur même que s\'il fond, balayez vers le haut, sinon - bas.</string>
+    <string name="tutorial_2_title">Le temps est important!</string>
+    <string name="tutorial_2_description">Décider jusqu\'à une époque jusqu\'à.</string>
+    <string name="tutorial_3_title">Noms Couleurs</string>
+    <string name="skip_button">Sauter</string>
+    <string name="done_button">Terminé</string>
+    <!-- end tutorial activity-->
+</resources>

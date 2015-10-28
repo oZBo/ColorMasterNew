@@ -32,14 +32,6 @@
     <string name="share_dialog_part_3">&#160;https://play.google.com/store/apps/details?id=com.braincollaboration.colormaster&#160;</string>
     <!--End app strings-->
 
-    <!--Strings for appRaterDialog-->
-    <string name="rate_dialog_title">Rate this app</string>
-    <string name="rate_dialog_message">If you enjoy playing this app, would you mind taking a moment to rate it? It won\'t take more than a minute. Thanks for your support!</string>
-    <string name="rate_dialog_ok">Rate It Now</string>
-    <string name="rate_dialog_cancel">Remind Me Later</string>
-    <string name="rate_dialog_no">No, Thanks</string>
-    <!--End appRaterDialog-->
-
     <!-- Strings for tutorial activity-->
     <string name="tutorial_1_title">Simple rules!</string>
     <string name="tutorial_1_description">If color name same as it\'s background, swipe to top, otherwise - down.</string>
@@ -49,5 +41,13 @@
     <string name="skip_button">Skip</string>
     <string name="done_button">Done</string>
     <!-- end tutorial activity-->
+
+    <!--Strings for appRaterDialog-->
+    <string name="rate_dialog_title">Rate this app</string>
+    <string name="rate_dialog_message">If you enjoy playing this app, would you mind taking a moment to rate it? It won\'t take more than a minute. Thanks for your support!</string>
+    <string name="rate_dialog_ok">Rate It Now</string>
+    <string name="rate_dialog_cancel">Remind Me Later</string>
+    <string name="rate_dialog_no">No, Thanks</string>
+    <!--End appRaterDialog-->
 
 </resources>

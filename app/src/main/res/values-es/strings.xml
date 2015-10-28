@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Color Master</string>
+
+    <!--Color names-->
+    <string name="color_red">Rojo</string>
+    <string name="color_pink">Rosa</string>
+    <string name="color_purple">Morado</string>
+    <string name="color_indigo">Indigo</string>
+    <string name="color_blue">Azul</string>
+    <string name="color_turquoise">Turquesa</string>
+    <string name="color_green">Verde</string>
+    <string name="color_yellow">Amarillo</string>
+    <string name="color_orange">Naranja</string>
+    <string name="color_brown">Marrón</string>
+    <!--End color names-->
+
+    <!--App strings-->
+    <string name="game_over">FIN DEL JUEGO</string>
+    <string name="score">PUNTUACIÓN</string>
+    <string name="best">MEJOR</string>
+    <string name="mode_normal">&#160;&#160;Normalidad&#160;&#160;</string>
+    <string name="mode_mirror">&#160;Espejo&#160;</string>
+
+    <string name="signin_other_error">Había un problema con la muestra. Por favor inténtelo de nuevo más tarde.</string>
+    <string name="signin_failure">Incapaz de acceder.</string>
+    <string name="check_internet">Por favor revise su conexion a internet!</string>
+
+    <string name="share_dialog_part_1">GUAUU! Marqué&#160;</string>
+    <string name="share_dialog_part_2">&#160;puntos de color juego principal en Android </string>
+    <string name="share_dialog_part_3">&#160;https://play.google.com/store/apps/details?id=com.braincollaboration.colormaster&#160;</string>
+    <!--End app strings-->
+
+    <!-- Strings for tutorial activity-->
+    <string name="tutorial_1_title">Reglas simples!</string>
+    <string name="tutorial_1_description">Si el nombre del color mismo que fondo, deslizar hacia arriba, de lo contrario - hacia abajo.</string>
+    <string name="tutorial_2_title">El tiempo es importante!</string>
+    <string name="tutorial_2_description">Decidir hasta los tiempos arriba.</string>
+    <string name="tutorial_3_title">Nombres colores</string>
+    <string name="skip_button">Saltar</string>
+    <string name="done_button">Hecho</string>
+    <!-- end tutorial activity-->
+</resources>

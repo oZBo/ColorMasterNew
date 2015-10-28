@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Color Master</string>
+
+    <!--Color names-->
+    <string name="color_red">빨간</string>
+    <string name="color_pink">핑크</string>
+    <string name="color_purple">보라색</string>
+    <string name="color_indigo">남</string>
+    <string name="color_blue">파랑</string>
+    <string name="color_turquoise">터키석</string>
+    <string name="color_green">녹색</string>
+    <string name="color_yellow">황색</string>
+    <string name="color_orange">오렌지</string>
+    <string name="color_brown">갈색</string>
+    <!--End color names-->
+
+    <!--App strings-->
+    <string name="game_over">게임 끝</string>
+    <string name="score">점수</string>
+    <string name="best">베스트</string>
+    <string name="mode_normal">&#160;&#160;표준&#160;&#160;</string>
+    <string name="mode_mirror">&#160;미러&#160;</string>
+
+    <string name="signin_other_error">로그인에 문제가 발생했습니다. 나중에 다시 시도하십시오.</string>
+    <string name="signin_failure">로그인 할 수 없습니다.</string>
+    <string name="check_internet">인터넷 연결을 확인하세요!</string>
+
+    <string name="share_dialog_part_1">와우! 나는 득점&#160;</string>
+    <string name="share_dialog_part_2">&#160;안드로이드의 색상 마스터 게임 포인트 </string>
+    <string name="share_dialog_part_3">&#160;https://play.google.com/store/apps/details?id=com.braincollaboration.colormaster&#160;</string>
+    <!--End app strings-->
+
+    <!-- Strings for tutorial activity-->
+    <string name="tutorial_1_title">간단한 규칙!</string>
+    <string name="tutorial_1_description">아래로 - 그렇지 않으면 정상에 그것을 의 배경, 와이프, 같은 색상 이름 같은 경우.</string>
+    <string name="tutorial_2_title">시간이 중요합니다!</string>
+    <string name="tutorial_2_description">배를 위로 할 때까지 결정합니다.</string>
+    <string name="tutorial_3_title">색 이름</string>
+    <string name="skip_button">건너 뛰기</string>
+    <string name="done_button">완료</string>
+    <!-- end tutorial activity-->
+</resources>

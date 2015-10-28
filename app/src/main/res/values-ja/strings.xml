@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Color Master</string>
+
+    <!--Color names-->
+    <string name="color_red">レッド</string>
+    <string name="color_pink">ローズ</string>
+    <string name="color_purple">パープル</string>
+    <string name="color_indigo">ダークブルー</string>
+    <string name="color_blue">ライトブルー</string>
+    <string name="color_turquoise">ターコイズ</string>
+    <string name="color_green">グリーン</string>
+    <string name="color_yellow">イエロー</string>
+    <string name="color_orange">オレンジ</string>
+    <string name="color_brown">ブラウン</string>
+    <!--End color names-->
+
+    <!--App strings-->
+    <string name="game_over">ゲームオーバー</string>
+    <string name="score">スコア</string>
+    <string name="best">ベスト</string>
+    <string name="mode_normal">&#160;&#160;ノーマル&#160;&#160;</string>
+    <string name="mode_mirror">&#160;ミラーリング&#160;</string>
+
+    <string name="signin_other_error">サインインに問題がありました。しばらくしてからもう一度お試しください。</string>
+    <string name="signin_failure">サインインすることができません。</string>
+    <string name="check_internet">インターネット接続を確認してください！</string>
+
+    <string name="share_dialog_part_1">うわー！私は得点しました&#160;</string>
+    <string name="share_dialog_part_2">&#160;Android上でカラーマスターゲーム内のポイント</string>
+    <string name="share_dialog_part_3">&#160;https://play.google.com/store/apps/details?id=com.braincollaboration.colormaster&#160;</string>
+    <!--End app strings-->
+
+    <!-- Strings for tutorial activity-->
+    <string name="tutorial_1_title">シンプルなルール！</string>
+    <string name="tutorial_1_description">ダウン - それ以外の場合は先頭に\ sの背景、スワイプ、などの色の名前と同じ場合。</string>
+    <string name="tutorial_2_title">時間が重要です！</string>
+    <string name="tutorial_2_description">倍アップまでを決定します。</string>
+    <string name="tutorial_3_title">色名</string>
+    <string name="skip_button">スキップ</string>
+    <string name="done_button">完了</string>
+    <!-- end tutorial activity-->
+</resources>

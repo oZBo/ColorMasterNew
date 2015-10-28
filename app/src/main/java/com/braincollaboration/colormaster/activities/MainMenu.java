@@ -73,7 +73,7 @@ public class MainMenu extends BaseGameActivity implements View.OnClickListener {
         btnLevelModeMirrored.setOnClickListener(this);
     }
 
-    private void initAppRaterDialog(){
+    private void initAppRaterDialog() {
         AppRate.with(this)
                 .setInstallDays(2) // default 10, 0 means install day.
                 .setLaunchTimes(5) // default 10 times.
@@ -84,7 +84,7 @@ public class MainMenu extends BaseGameActivity implements View.OnClickListener {
                 .setTitle(R.string.rate_dialog_title)
                 .setTextLater(R.string.rate_dialog_cancel)
                 .setTextNever(R.string.rate_dialog_no)
-                .setTextRateNow( R.string.rate_dialog_ok )
+                .setTextRateNow(R.string.rate_dialog_ok)
                 .monitor();
     }
 
@@ -180,7 +180,6 @@ public class MainMenu extends BaseGameActivity implements View.OnClickListener {
         if (requestCode == ACTIVITY_CODE_SHOW_LEADERBOARD
                 && responseCode == GamesActivityResultCodes.RESULT_RECONNECT_REQUIRED) {
             mHelper.disconnect();
-            // update your logic here (show login btn, hide logout btn).
         } else {
             mHelper.onActivityResult(requestCode, responseCode, data);
         }

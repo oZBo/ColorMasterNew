@@ -73,7 +73,7 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         gameHelper = new GameHelper(this, GameHelper.CLIENT_GAMES);
-        if(getIntent().getBooleanExtra(MainMenu.IS_GOOGLE_GAMES_LOGED_IN, false)){
+        if (getIntent().getBooleanExtra(MainMenu.IS_GOOGLE_GAMES_LOGED_IN, false)) {
             initGoogleGamesService();
         }
         soundManager = SoundManager.getInstance(this);
@@ -88,21 +88,21 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
         initAdvertise();
     }
 
-    private void initGoogleGamesService(){
-        if(!isGoogleGamesConnected) {
+    private void initGoogleGamesService() {
+        if (!isGoogleGamesConnected) {
             gameHelper.setup(this);
             gameHelper.onStart(this);
             isGoogleGamesConnected = true;
         }
     }
 
-    private void initAdvertise(){
+    private void initAdvertise() {
         Appodeal.initialize(this, APPODEAL_KEY, Appodeal.INTERSTITIAL);
         Appodeal.cache(this, Appodeal.INTERSTITIAL);
     }
 
-    private void showSdvertiseIfCan(){
-        if(++advertiseCounter == GAME_OVERS_TO_SHOW_ADVERTISE){
+    private void showSdvertiseIfCan() {
+        if (++advertiseCounter == GAME_OVERS_TO_SHOW_ADVERTISE) {
             Appodeal.show(this, Appodeal.INTERSTITIAL);
             advertiseCounter = 0;
         }
@@ -170,7 +170,6 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
     }
 
     protected void initAnimations() {
-
         fallingDownLeft = AnimationUtils.loadAnimation(this, R.anim.falling_down);
         fallingDownRight = AnimationUtils.loadAnimation(this, R.anim.falling_down);
         fadeIn = AnimationUtils.loadAnimation(this, android.R.anim.fade_in);
@@ -238,7 +237,6 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
     }
 
     private void startSideTimer(int sideID, final int levelTime) {
-
         switch (sideID) {
             case LEFT_SIDE_ID:
                 fallingDownLeft.setDuration(levelTime);
@@ -313,16 +311,14 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
         layoutGameOver.startAnimation(fadeIn);
     }
 
-    private void updateLeaderboard(){
-        if(gameHelper.isSignedIn()) {
+    private void updateLeaderboard() {
+        if (gameHelper.isSignedIn()) {
             switch (gameMode) {
                 case MIRRORED:
-                    Games.Leaderboards.submitScore(gameHelper.getApiClient(), getString(R.string.leaderboard_mode_mirrored),
-                            score);
+                    Games.Leaderboards.submitScore(gameHelper.getApiClient(), getString(R.string.leaderboard_mode_mirrored), score);
                     break;
                 case NORMAL:
-                    Games.Leaderboards.submitScore(gameHelper.getApiClient(), getString(R.string.leaderboard_mode_normal),
-                            score);
+                    Games.Leaderboards.submitScore(gameHelper.getApiClient(), getString(R.string.leaderboard_mode_normal), score);
                     break;
             }
         }
@@ -353,10 +349,11 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
                 textViewLeftSide.setTextDrawingNormal();
                 break;
             case MIRRORED:
-                if (GameHelperUtil.getRandomBoolean())
+                if (GameHelperUtil.getRandomBoolean()) {
                     textViewLeftSide.setTextDrawingMirrored();
-                else
+                } else {
                     textViewLeftSide.setTextDrawingNormal();
+                }
                 break;
         }
         textViewLeftSide.setTextColor(colorLeft.getColorValue());
@@ -371,10 +368,11 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
                 textViewRightSide.setTextDrawingNormal();
                 break;
             case MIRRORED:
-                if (GameHelperUtil.getRandomBoolean())
+                if (GameHelperUtil.getRandomBoolean()) {
                     textViewRightSide.setTextDrawingMirrored();
-                else
+                } else {
                     textViewRightSide.setTextDrawingNormal();
+                }
                 break;
         }
         textViewRightSide.setTextColor(colorRight.getColorValue());
@@ -457,10 +455,8 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
     }
 
     protected void onActivityResult(int requestCode, int responseCode, Intent data) {
-        if (requestCode == ACTIVITY_CODE_SHOW_LEADERBOARD
-                && responseCode == GamesActivityResultCodes.RESULT_RECONNECT_REQUIRED) {
+        if (requestCode == ACTIVITY_CODE_SHOW_LEADERBOARD && responseCode == GamesActivityResultCodes.RESULT_RECONNECT_REQUIRED) {
             gameHelper.disconnect();
-            // update your logic here (show login btn, hide logout btn).
         } else {
             updateLeaderboard();
             gameHelper.onActivityResult(requestCode, responseCode, data);

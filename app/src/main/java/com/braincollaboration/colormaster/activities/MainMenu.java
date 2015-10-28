@@ -19,6 +19,7 @@ import com.google.example.games.basegameutils.BaseGameActivity;
 
 import cat.ppicas.customtypeface.CustomTypeface;
 import cat.ppicas.customtypeface.CustomTypefaceFactory;
+import hotchemi.android.rate.AppRate;
 
 /**
  * Main menu activity
@@ -44,6 +45,7 @@ public class MainMenu extends BaseGameActivity implements View.OnClickListener {
         soundManager = SoundManager.getInstance(this);
         setContentView(R.layout.main_menu);
         initViews();
+        initAppRaterDialog();
     }
 
     @Override
@@ -68,6 +70,21 @@ public class MainMenu extends BaseGameActivity implements View.OnClickListener {
         btnLevelModeNormal.setOnClickListener(this);
         btnLevelModeMirrored = (Button) findViewById(R.id.btn_level_mode_mirrored);
         btnLevelModeMirrored.setOnClickListener(this);
+    }
+
+    private void initAppRaterDialog(){
+        AppRate.with(this)
+                .setInstallDays(3) // default 10, 0 means install day.
+                .setLaunchTimes(7) // default 10 times.
+                .setRemindInterval(2) // default 1 day.
+                .setShowLaterButton(true) // default true.
+                .setDebug(true) // default false.
+                .setCancelable(false) // default false.
+                .setTitle(R.string.rate_dialog_title)
+                .setTextLater(R.string.rate_dialog_cancel)
+                .setTextNever(R.string.rate_dialog_no)
+                .setTextRateNow( R.string.rate_dialog_ok )
+                .monitor();
     }
 
     //Checking gameMode and changing buttons backgrounds

@@ -40,11 +40,11 @@
     <!--End app strings-->
 
     <!--Strings for appRaterDialog-->
-    <string name="erd_title">Rate this app!</string>
-    <string name="erd_message">Hi, take a minute to rate this app and help support to improve more new features. ;)</string>
-    <string name="erd_no_thanks">No, thanks</string>
-    <string name="erd_remind_me_later">Remind me later</string>
-    <string name="erd_rate_now">Rate now</string>
+    <string name="rate_dialog_title">Rate this app</string>
+    <string name="rate_dialog_message">If you enjoy playing this app, would you mind taking a moment to rate it? It won\'t take more than a minute. Thanks for your support!</string>
+    <string name="rate_dialog_ok">Rate It Now</string>
+    <string name="rate_dialog_cancel">Remind Me Later</string>
+    <string name="rate_dialog_no">No, Thanks</string>
     <!--End appRaterDialog-->
 
     <!-- Strings for tutorial activity-->

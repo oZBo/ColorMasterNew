@@ -37,7 +37,7 @@ import cat.ppicas.customtypeface.CustomTypefaceFactory;
 public class GameLevel extends Activity implements View.OnTouchListener, View.OnClickListener, GameHelper.GameHelperListener {
 
     private static final String APPODEAL_KEY = "414827a25f3e7b76f79681b5ac840a19ab5319a9d5702ece";
-    private static final int GAME_OVERS_TO_SHOW_ADVERTISE = 3;
+    private static final int GAME_OVERS_TO_SHOW_ADVERTISE = 2;
     public static final int ACTIVITY_CODE_SHOW_LEADERBOARD = 500;
     private static final int LEFT_SIDE_ID = 100;
     private static final int RIGHT_SIDE_ID = 200;

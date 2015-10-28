@@ -9,6 +9,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.braincollaboration.colormaster.LocaleCustom;
 import com.braincollaboration.colormaster.R;
 import com.braincollaboration.colormaster.engine.GameMode;
 import com.braincollaboration.colormaster.utils.PreferenceUtil;
@@ -34,10 +35,10 @@ public class MainMenu extends BaseGameActivity implements View.OnClickListener {
     private GameMode gameMode = GameMode.NORMAL;
     private SoundManager soundManager;
     private boolean isGooglePlayInit = false;
-//    private EasyRatingDialog easyRatingDialog; //TODO add appRaterDialog
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        LocaleCustom.setLocale(this);
         getLayoutInflater().setFactory(new CustomTypefaceFactory(this, CustomTypeface.getInstance()));
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -74,8 +75,8 @@ public class MainMenu extends BaseGameActivity implements View.OnClickListener {
 
     private void initAppRaterDialog(){
         AppRate.with(this)
-                .setInstallDays(3) // default 10, 0 means install day.
-                .setLaunchTimes(7) // default 10 times.
+                .setInstallDays(2) // default 10, 0 means install day.
+                .setLaunchTimes(5) // default 10 times.
                 .setRemindInterval(2) // default 1 day.
                 .setShowLaterButton(true) // default true.
                 .setDebug(true) // default false.
@@ -122,7 +123,6 @@ public class MainMenu extends BaseGameActivity implements View.OnClickListener {
                 break;
             case R.id.level_chooser_btn_markapp:
                 soundManager.play(R.raw.menu_click);
-                //TODO before publishing app uncomment "go to the market" functionality
                 final String appPackageName = getPackageName(); // getPackageName() from Context or Activity object
                 try {
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));

@@ -20,15 +20,8 @@
     <string name="game_over">GAME OVER</string>
     <string name="score">SCORE</string>
     <string name="best">BEST</string>
-    <string name="tip">If text color same as color name swipe top, otherwise - down</string>
-    <string name="tip_2">But be careful!\n You have not much time and two screens.</string>
-    <string name="tap_to_continue">Tap to continue!</string>
-    <string name="tip_dont_show_again">Do not show this tip again</string>
-    <string name="left_side">LEFT</string>
-    <string name="right_side">RIGHT</string>
     <string name="mode_normal">&#160;&#160;Normal&#160;&#160;</string>
     <string name="mode_mirror">&#160;Mirrored&#160;</string>
-    <string name="level_hard">Hard</string>
 
     <string name="signin_other_error">There was an issue with sign in.  Please try again later.</string>
     <string name="signin_failure">Unable to sign in.</string>

@@ -64,7 +64,6 @@ class ColorHelper {
                 return 505;
         }
     }
-        //TODO add dependency between color and background
     public static Drawable getColorImageBackground(Context mContext, int colorNumber) {
         int randomSeedBackground = random.nextInt(5);
             switch (colorNumber){

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Color Master</string>
+
+    <!--Color names-->
+    <string name="color_red">赤</string>
+    <string name="color_pink">罗斯</string>
+    <string name="color_purple">紫</string>
+    <string name="color_indigo">深蓝色</string>
+    <string name="color_blue">淡蓝色的</string>
+    <string name="color_turquoise">绿宝石</string>
+    <string name="color_green">绿色的</string>
+    <string name="color_yellow">黄</string>
+    <string name="color_orange">奥兰治</string>
+    <string name="color_brown">布朗</string>
+    <!--End color names-->
+
+    <!--App strings-->
+    <string name="game_over">游戏结束</string>
+    <string name="score">得分了</string>
+    <string name="best">最好的</string>
+    <string name="mode_normal">&#160;&#160;正常&#160;&#160;</string>
+    <string name="mode_mirror">&#160;镜像&#160;</string>
+
+    <string name="signin_other_error">有一个问题的迹象。请稍后重试。</string>
+    <string name="signin_failure">无法登录。</string>
+    <string name="check_internet">请检查您的网络连接！</string>
+
+    <string name="share_dialog_part_1">О哇！我打进&#160;</string>
+    <string name="share_dialog_part_2">&#160;在 Android 上色母游戏点数</string>
+    <string name="share_dialog_part_3">&#160;https://play.google.com/store/apps/details?id=com.braincollaboration.colormaster&#160;</string>
+    <!--End app strings-->
+
+    <!-- Strings for tutorial activity-->
+    <string name="tutorial_1_title">简单的规则！</string>
+    <string name="tutorial_1_description">如果颜色名称相同的背景，轻扫顶部，否则 - 下来。</string>
+    <string name="tutorial_2_title">时间是很重要的！</string>
+    <string name="tutorial_2_description">决定到时候了。</string>
+    <string name="tutorial_3_title">颜色名称</string>
+    <string name="skip_button">跳跃</string>
+    <string name="done_button">做完</string>
+    <!-- end tutorial activity-->
+
+</resources>

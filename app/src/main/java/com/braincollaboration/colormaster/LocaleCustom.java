@@ -17,7 +17,7 @@ public class LocaleCustom {
         // Change locale settings in the app.
         DisplayMetrics dm = res.getDisplayMetrics();
         android.content.res.Configuration conf = res.getConfiguration();
-        conf.locale = new Locale("ja".toLowerCase());
+        conf.locale = new Locale("cs".toLowerCase());
         res.updateConfiguration(conf, dm);
     }
 

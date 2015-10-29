@@ -3,6 +3,7 @@ package com.braincollaboration.colormaster.activities;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.braincollaboration.colormaster.LocaleCustom;
 import com.braincollaboration.colormaster.R;
 import com.braincollaboration.colormaster.utils.PreferenceUtil;
 import com.github.paolorotolo.appintro.AppIntro;
@@ -18,6 +19,8 @@ public class Tutorial extends AppIntro {
 
     @Override
     public void init(Bundle bundle) {
+        LocaleCustom.setLocale(this);
+
         canGoToGameActivity = getIntent().getBooleanExtra(getString(R.string.pref_key_can_start_game_after_tutorial), true);
         // Instead of fragments, you can also use our default slide
         // Just set a title, description, background and image. AppIntro will do the rest

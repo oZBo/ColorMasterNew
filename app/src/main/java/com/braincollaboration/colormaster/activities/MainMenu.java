@@ -9,7 +9,6 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import com.braincollaboration.colormaster.LocaleCustom;
 import com.braincollaboration.colormaster.R;
 import com.braincollaboration.colormaster.engine.GameMode;
 import com.braincollaboration.colormaster.utils.PreferenceUtil;
@@ -38,7 +37,6 @@ public class MainMenu extends BaseGameActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        LocaleCustom.setLocale(this);
         getLayoutInflater().setFactory(new CustomTypefaceFactory(this, CustomTypeface.getInstance()));
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);

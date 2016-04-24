@@ -13,12 +13,13 @@ public class LocaleCustom {
 
     //TODO Temporary class for debug mode. Removed for production
     public static void setLocale(Context ctx){
-        Resources res = ctx.getResources();
-        // Change locale settings in the app.
-        DisplayMetrics dm = res.getDisplayMetrics();
-        android.content.res.Configuration conf = res.getConfiguration();
-        conf.locale = new Locale("ja".toLowerCase());
-        res.updateConfiguration(conf, dm);
+        if(BuildConfig.DEBUG) {
+            Resources res = ctx.getResources();
+            // Change locale settings in the app.
+            DisplayMetrics dm = res.getDisplayMetrics();
+            android.content.res.Configuration conf = res.getConfiguration();
+            conf.locale = new Locale("ru".toLowerCase());
+            res.updateConfiguration(conf, dm);
+        }
     }
-
 }

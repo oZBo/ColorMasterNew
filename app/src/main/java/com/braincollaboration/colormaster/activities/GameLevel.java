@@ -15,7 +15,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.appodeal.ads.Appodeal;
-import com.braincollaboration.colormaster.LocaleCustom;
 import com.braincollaboration.colormaster.R;
 import com.braincollaboration.colormaster.engine.Color;
 import com.braincollaboration.colormaster.engine.GameHelperUtil;
@@ -66,8 +65,6 @@ public class GameLevel extends Activity implements View.OnTouchListener, View.On
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        LocaleCustom.setLocale(this);
-
         getLayoutInflater().setFactory(new CustomTypefaceFactory(this, CustomTypeface.getInstance())); //Set custom fonts to the current activity
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);

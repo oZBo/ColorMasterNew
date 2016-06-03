@@ -175,6 +175,9 @@
         <!--suppress AndroidDomInspection -->
         <activity android:name="com.flurry.android.FlurryFullscreenTakeoverActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="6165f79f1cf049ec65194d9c73654e48333b355d" />
     </application>
 
 </manifest>
